@@ -55,8 +55,9 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
 
         public void Update(MODEL.Setor setor) {
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "UPDATE Setor SET (nome=@nome WHERE id=@id);";
+            string sql = "UPDATE Setor SET nome=@nome WHERE id=@id;";
             SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", setor.id);
             cmd.Parameters.AddWithValue("@nome", setor.nome);
 
             try {

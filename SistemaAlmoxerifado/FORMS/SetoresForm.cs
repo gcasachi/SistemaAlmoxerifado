@@ -64,7 +64,7 @@ namespace SistemaAlmoxerifado.FORMS {
             string titBox = "Remover";
 
             if(lblID.Text != "") {
-                msg = "Deseja Remover o Livro: " + txtNome.Text;
+                msg = "Deseja Remover o Setor: " + txtNome.Text;
                 DialogResult resposta = MessageBox.Show(msg, titBox, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if(resposta == DialogResult.Yes) {
                     int id = Convert.ToInt32(lblID.Text);
