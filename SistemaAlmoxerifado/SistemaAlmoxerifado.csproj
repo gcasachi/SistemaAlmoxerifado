@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAMADAS\DAL\Conexao.cs" />
+    <Compile Include="CAMADAS\MODEL\Fornecedor.cs" />
     <Compile Include="FORMS\FornecedorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,8 +104,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CAMADAS\BLL\" />
-    <Folder Include="CAMADAS\DAL\" />
-    <Folder Include="CAMADAS\MODEL\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
