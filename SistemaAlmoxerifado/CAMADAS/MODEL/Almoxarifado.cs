@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SistemaAlmoxerifado.CAMADAS.MODEL {
-    class Fornecedor {
+    class Almoxarifado {
 
-        public int id { get; set; }
+        public int idProduto { get; set; }
+        public int fornecedorID { get; set; }
         public string nome { get; set; }
+        public int quantidade { get; set; }
     }
 }
