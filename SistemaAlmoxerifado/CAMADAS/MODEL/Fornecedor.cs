@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SistemaAlmoxerifado.CAMADAS.MODEL {
-    class Fornecedor {
+    public class Fornecedor {
 
         public int id { get; set; }
         public string nome { get; set; }
