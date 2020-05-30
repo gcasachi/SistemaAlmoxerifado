@@ -104,6 +104,7 @@
     <Folder Include="CAMADAS\BLL\" />
     <Folder Include="CAMADAS\DAL\" />
     <Folder Include="CAMADAS\MODEL\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
