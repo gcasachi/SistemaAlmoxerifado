@@ -23,12 +23,142 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dgvSetor = new System.Windows.Forms.DataGridView();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnGravar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.lblID = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSetor)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(343, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 31);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Setores";
+            // 
+            // dgvSetor
+            // 
+            this.dgvSetor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSetor.Location = new System.Drawing.Point(546, 132);
+            this.dgvSetor.Name = "dgvSetor";
+            this.dgvSetor.Size = new System.Drawing.Size(242, 306);
+            this.dgvSetor.TabIndex = 3;
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovo.Location = new System.Drawing.Point(108, 357);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.TabIndex = 5;
+            this.btnNovo.Text = "&Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            // 
+            // btnGravar
+            // 
+            this.btnGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGravar.Location = new System.Drawing.Point(189, 357);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(75, 23);
+            this.btnGravar.TabIndex = 6;
+            this.btnGravar.Text = "&Gravar";
+            this.btnGravar.UseVisualStyleBackColor = true;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Location = new System.Drawing.Point(270, 357);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 7;
+            this.btnEditar.Text = "&Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            // 
+            // btnRemover
+            // 
+            this.btnRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemover.Location = new System.Drawing.Point(351, 357);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(75, 23);
+            this.btnRemover.TabIndex = 8;
+            this.btnRemover.Text = "&Remover";
+            this.btnRemover.UseVisualStyleBackColor = true;
+            // 
+            // lblID
+            // 
+            this.lblID.Location = new System.Drawing.Point(105, 132);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(100, 23);
+            this.lblID.TabIndex = 26;
+            // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(105, 158);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(100, 20);
+            this.txtNome.TabIndex = 25;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(61, 161);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Nome:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(78, 138);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(21, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "ID:";
+            // 
+            // SetoresForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "SetoresForm";
+            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnRemover);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnGravar);
+            this.Controls.Add(this.btnNovo);
+            this.Controls.Add(this.dgvSetor);
+            this.Controls.Add(this.label3);
+            this.Name = "SetoresForm";
+            this.Text = "Setor";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSetor)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dgvSetor;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.Button btnGravar;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnRemover;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
