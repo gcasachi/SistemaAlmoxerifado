@@ -46,12 +46,47 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                 cmd.ExecuteNonQuery();
             }
             catch {
+                Console.WriteLine("Erro no Insert Setor");
+            }
+            finally {
+                conexao.Close();
+            }
+        }
+
+        public void Update(MODEL.Setor setor) {
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "UPDATE Setor SET (nome=@nome WHERE id=@id);";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@nome", setor.nome);
+
+            try {
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch {
                 Console.WriteLine("Erro no Update Setor");
             }
             finally {
                 conexao.Close();
             }
         }
-       
+
+        public void Delete(int idSetor) {
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "DELETE FROM Setor WHERE id=@id";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", idSetor);
+            try {
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch {
+                Console.WriteLine("Erro ao Excluir");
+            }
+            finally {
+                conexao.Close();
+            }
+        }
+
     }
 }
