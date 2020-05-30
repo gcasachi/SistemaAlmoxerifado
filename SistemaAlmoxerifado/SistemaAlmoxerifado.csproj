@@ -76,7 +76,6 @@
     <Compile Include="FORMS\SetoresForm.Designer.cs">
       <DependentUpon>SetoresForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewFolder1\Class1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
