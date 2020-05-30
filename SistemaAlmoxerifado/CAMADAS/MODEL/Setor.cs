@@ -6,9 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SistemaAlmoxerifado.CAMADAS.MODEL {
-    class Setor {
+    public class Setor {
 
         public int id { get; set; }
         public string nome { get; set; }
+
     }
 }
