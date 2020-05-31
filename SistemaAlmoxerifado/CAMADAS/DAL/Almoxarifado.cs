@@ -41,6 +41,32 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
             return lstAlmoxarifado;
         }
 
+        public int SelectByID(int id) {
+            SqlConnection conexao = new SqlConnection(strCon);
+            int quantidadeEstoque = 0;
+
+            string sql = "SELECT * FROM Almoxarifado WHERE id=@id;";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            try {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dados.Read()) {
+                    quantidadeEstoque = Convert.ToInt32(dados["quantidade"].ToString());
+                }
+            }
+            catch {
+                Console.WriteLine("Erro listar Banco sql-Livros");
+            }
+            finally {
+                conexao.Close();
+            }
+
+            return quantidadeEstoque;
+        }
+
         public void Insert(MODEL.Almoxarifado almoxarifado) {
             SqlConnection conexao = new SqlConnection(strCon);
 

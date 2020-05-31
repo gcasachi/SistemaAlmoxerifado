@@ -146,5 +146,63 @@ namespace SistemaAlmoxerifado.FORMS {
             txtQuantidadeRequisitada.Text = dgvRequisicoes.SelectedRows[0].Cells["quantidade"].Value.ToString();
             txtData.Text = dgvRequisicoes.SelectedRows[0].Cells["data"].Value.ToString();
         }
+
+        private void btnEditar_Click(object sender, EventArgs e) {
+            if (lblID.Text != "") {
+                habilitaControles(true);
+                txtQuantidadeRequisitada.Focus();
+            }
+            else {
+                MessageBox.Show("Não há dados para Editar", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e) {
+            CAMADAS.BLL.Requisicao bllRequisicao = new CAMADAS.BLL.Requisicao();
+
+            string mensagem = "Não há dados selecionado para remover";
+            string tituloMensagem = "Remover";
+
+            if (lblID.Text != "") {
+                mensagem = "Deseja remover a Requisição: " + lblID.Text + "?";
+                DialogResult resposta = MessageBox.Show(mensagem, tituloMensagem, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                if (resposta == DialogResult.Yes) {
+                    CAMADAS.MODEL.Almoxarifado almoxarifado = new CAMADAS.MODEL.Almoxarifado();
+                    almoxarifado.id = Convert.ToInt32(txtIDProduto.Text);
+
+                    int quantidadeEstoque = new CAMADAS.BLL.Almoxarifado().SelectByID(almoxarifado.id);
+                    int quantidadeRequisitada = Convert.ToInt32(txtQuantidadeRequisitada.Text);
+
+                    almoxarifado.quantidade = quantidadeEstoque + quantidadeRequisitada;
+
+                    CAMADAS.BLL.Almoxarifado bllAtualizaEstoqueItem = new CAMADAS.BLL.Almoxarifado();
+                    bllAtualizaEstoqueItem.Update(almoxarifado);
+
+                    int idRemocao = Convert.ToInt32(lblID.Text);
+                    bllRequisicao.Delete(idRemocao);
+                }
+            }
+            else {
+                MessageBox.Show(mensagem, tituloMensagem, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(mensagem, tituloMensagem, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            limpaControles();
+
+            dgvProdutos.DataSource = "";
+            dgvProdutos.DataSource = new CAMADAS.BLL.Almoxarifado().Select();
+            dgvRequisicoes.DataSource = "";
+            dgvRequisicoes.DataSource = bllRequisicao.Select();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e) {
+            limpaControles();
+            habilitaControles(false);
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e) {
+            this.Dispose();
+        }
     }
 }

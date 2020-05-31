@@ -48,6 +48,7 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.dgvRequisicoes = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnVoltar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequisicoes)).BeginInit();
             this.SuspendLayout();
@@ -212,6 +213,7 @@
             this.btnCancelar.TabIndex = 65;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnRemover
             // 
@@ -222,6 +224,7 @@
             this.btnRemover.TabIndex = 64;
             this.btnRemover.Text = "&Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnEditar
             // 
@@ -232,6 +235,7 @@
             this.btnEditar.TabIndex = 63;
             this.btnEditar.Text = "&Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGravar
             // 
@@ -274,11 +278,23 @@
             this.label10.TabIndex = 67;
             this.label10.Text = "Lista de Itens";
             // 
+            // btnVoltar
+            // 
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Location = new System.Drawing.Point(884, 25);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltar.TabIndex = 68;
+            this.btnVoltar.Text = "&Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
             // RequisicaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 487);
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dgvRequisicoes);
             this.Controls.Add(this.btnCancelar);
@@ -341,5 +357,6 @@
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.DataGridView dgvRequisicoes;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }
