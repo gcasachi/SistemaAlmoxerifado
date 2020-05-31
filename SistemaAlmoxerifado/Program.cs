@@ -14,7 +14,7 @@ namespace SistemaAlmoxerifado {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SetoresForm());
+            Application.Run(new FornecedorForm());
         }
     }
 }
