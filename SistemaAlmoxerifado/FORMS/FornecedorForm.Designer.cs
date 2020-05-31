@@ -45,6 +45,7 @@
             this.dgvFornecedor.Name = "dgvFornecedor";
             this.dgvFornecedor.Size = new System.Drawing.Size(242, 306);
             this.dgvFornecedor.TabIndex = 12;
+            this.dgvFornecedor.DoubleClick += new System.EventHandler(this.dgvFornecedor_DoubleClick);
             // 
             // label4
             // 
@@ -97,6 +98,7 @@
             this.btnCancelar.TabIndex = 32;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnRemover
             // 
@@ -107,6 +109,7 @@
             this.btnRemover.TabIndex = 31;
             this.btnRemover.Text = "&Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnEditar
             // 
@@ -117,6 +120,7 @@
             this.btnEditar.TabIndex = 30;
             this.btnEditar.Text = "&Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnGravar
             // 
@@ -127,6 +131,7 @@
             this.btnGravar.TabIndex = 29;
             this.btnGravar.Text = "&Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnNovo
             // 
@@ -137,6 +142,7 @@
             this.btnNovo.TabIndex = 28;
             this.btnNovo.Text = "&Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnVoltar
             // 
@@ -147,6 +153,7 @@
             this.btnVoltar.TabIndex = 33;
             this.btnVoltar.Text = "&Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // FornecedorForm
             // 
@@ -167,6 +174,7 @@
             this.Controls.Add(this.dgvFornecedor);
             this.Name = "FornecedorForm";
             this.Text = "Fornecedor";
+            this.Load += new System.EventHandler(this.FornecedorForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
