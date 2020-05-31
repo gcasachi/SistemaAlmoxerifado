@@ -20,11 +20,6 @@ namespace SistemaAlmoxerifado.FORMS {
             txtQuantidadeProduto.Enabled = false;
             txtData.Enabled = false;
 
-            CAMADAS.BLL.Setor bllSetor = new CAMADAS.BLL.Setor();
-            cbSetor.DisplayMember = "nome";
-            cbSetor.ValueMember = "id";
-            cbSetor.DataSource = bllSetor.Select();
-
             CAMADAS.BLL.Almoxarifado bllAlmoxarifado = new CAMADAS.BLL.Almoxarifado();
             dgvProdutos.DataSource = "";
             dgvProdutos.DataSource = bllAlmoxarifado.Select();
@@ -63,6 +58,11 @@ namespace SistemaAlmoxerifado.FORMS {
         }
 
         private void btnNovo_Click(object sender, EventArgs e) {
+            CAMADAS.BLL.Setor bllSetor = new CAMADAS.BLL.Setor();
+            cbSetor.DisplayMember = "nome";
+            cbSetor.ValueMember = "id";
+            cbSetor.DataSource = bllSetor.Select();
+
             habilitaControles(true);
             limpaControles();
 
@@ -137,6 +137,14 @@ namespace SistemaAlmoxerifado.FORMS {
 
                 MessageBox.Show(mensagem, tituloMensagem, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvRequisicoes_DoubleClick(object sender, EventArgs e) {
+            lblID.Text = dgvRequisicoes.SelectedRows[0].Cells["id"].Value.ToString();
+            txtIDSetor.Text = dgvRequisicoes.SelectedRows[0].Cells["setorID"].Value.ToString();
+            txtIDProduto.Text = dgvRequisicoes.SelectedRows[0].Cells["produtoID"].Value.ToString();
+            txtQuantidadeRequisitada.Text = dgvRequisicoes.SelectedRows[0].Cells["quantidade"].Value.ToString();
+            txtData.Text = dgvRequisicoes.SelectedRows[0].Cells["data"].Value.ToString();
         }
     }
 }

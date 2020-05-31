@@ -262,6 +262,7 @@
             this.dgvRequisicoes.Name = "dgvRequisicoes";
             this.dgvRequisicoes.Size = new System.Drawing.Size(544, 142);
             this.dgvRequisicoes.TabIndex = 66;
+            this.dgvRequisicoes.DoubleClick += new System.EventHandler(this.dgvRequisicoes_DoubleClick);
             // 
             // label10
             // 

@@ -14,7 +14,7 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
             List<MODEL.Requisicao> lstFornecedores = new List<MODEL.Requisicao>();
 
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "SELECT * FROM Fornecedor";
+            string sql = "SELECT * FROM Requisicao";
             SqlCommand cmd = new SqlCommand(sql, conexao);
 
             try {
@@ -24,6 +24,7 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                     MODEL.Requisicao requisicao = new MODEL.Requisicao();
 
                     requisicao.id = Convert.ToInt32(dados["id"].ToString());
+                    requisicao.setorID = Convert.ToInt32(dados["setorID"].ToString());
                     requisicao.produtoID = Convert.ToInt32(dados["produtoID"].ToString());
                     requisicao.quantidade = Convert.ToInt32(dados["quantidade"].ToString());
                     requisicao.data = Convert.ToDateTime(dados["data"].ToString());
