@@ -133,9 +133,9 @@ namespace SistemaAlmoxerifado.FORMS {
         }
 
         private void dgvItens_DoubleClick(object sender, EventArgs e) {
-            lblID.Text = dgvItens.SelectedRows[0].Cells["id_produto"].Value.ToString();
-            cbFornecedor.SelectedValue = Convert.ToInt32(dgvItens.SelectedRows[0].Cells["fornecedor_id"].Value.ToString());
-            txtFornecedor.Text = dgvItens.SelectedRows[0].Cells["fornecedor_id"].Value.ToString();
+            lblID.Text = dgvItens.SelectedRows[0].Cells["idProduto"].Value.ToString();
+            cbFornecedor.SelectedValue = Convert.ToInt32(dgvItens.SelectedRows[0].Cells["fornecedorID"].Value.ToString());
+            txtFornecedor.Text = dgvItens.SelectedRows[0].Cells["fornecedorID"].Value.ToString();
             txtItem.Text = dgvItens.SelectedRows[0].Cells["nome"].Value.ToString();
             txtQuantidade.Text = dgvItens.SelectedRows[0].Cells["quantidade"].Value.ToString();
 

@@ -109,10 +109,11 @@
             // 
             // lblID
             // 
-            this.lblID.Location = new System.Drawing.Point(92, 119);
+            this.lblID.Location = new System.Drawing.Point(92, 120);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(100, 23);
+            this.lblID.Size = new System.Drawing.Size(100, 22);
             this.lblID.TabIndex = 55;
+            this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
@@ -153,7 +154,7 @@
             // 
             this.txtItem.Location = new System.Drawing.Point(95, 171);
             this.txtItem.Name = "txtItem";
-            this.txtItem.Size = new System.Drawing.Size(100, 20);
+            this.txtItem.Size = new System.Drawing.Size(120, 20);
             this.txtItem.TabIndex = 50;
             // 
             // label4
