@@ -57,17 +57,17 @@
     <Compile Include="CAMADAS\MODEL\Fornecedor.cs" />
     <Compile Include="CAMADAS\MODEL\Requisicao.cs" />
     <Compile Include="CAMADAS\MODEL\Setor.cs" />
+    <Compile Include="FORMS\AlmoxarifadoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\AlmoxarifadoForm.Designer.cs">
+      <DependentUpon>AlmoxarifadoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\FornecedorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FORMS\FornecedorForm.Designer.cs">
       <DependentUpon>FornecedorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FORMS\ItensForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FORMS\ItensForm.Designer.cs">
-      <DependentUpon>ItensForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FORMS\menuForm.cs">
       <SubType>Form</SubType>
@@ -89,11 +89,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FORMS\AlmoxarifadoForm.resx">
+      <DependentUpon>AlmoxarifadoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMS\FornecedorForm.resx">
       <DependentUpon>FornecedorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FORMS\ItensForm.resx">
-      <DependentUpon>ItensForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\SetoresForm.resx">
       <DependentUpon>SetoresForm.cs</DependentUpon>

@@ -8,7 +8,7 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
     class Conexao {
 
         public static string getConexao() {
-            return @"Data Source=.;Initial Catalog=SISTEMA_ALMOXARIFADO;Integrated Security=True";
+            return @"Data Source=.\sqlexpress;Initial Catalog=SISTEMA_ALMOXARIFADO;Integrated Security=True";
         }
     }
 }

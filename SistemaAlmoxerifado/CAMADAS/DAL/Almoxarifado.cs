@@ -44,13 +44,12 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
         public void Insert(MODEL.Almoxarifado almoxarifado) {
             SqlConnection conexao = new SqlConnection(strCon);
 
-            string sql = "INSERT INTO Almoxarifado VALUES (@id_produto, @fornecedor_id, @nome, @quantidade);";
+            string sql = "INSERT INTO Almoxarifado VALUES (@fornecedor_id, @nome, @quantidade);";
             SqlCommand cmd = new SqlCommand(sql, conexao);
 
-            cmd.Parameters.AddWithValue("@id_produto", almoxarifado.idProduto);
             cmd.Parameters.AddWithValue("@fornecedor_id", almoxarifado.fornecedorID);
             cmd.Parameters.AddWithValue("@nome", almoxarifado.nome);
-            cmd.Parameters.AddWithValue("@@quantidade", almoxarifado.quantidade);
+            cmd.Parameters.AddWithValue("@quantidade", almoxarifado.quantidade);
 
             try {
                 conexao.Open();
