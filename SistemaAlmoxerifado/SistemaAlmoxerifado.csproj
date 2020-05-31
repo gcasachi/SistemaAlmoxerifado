@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAMADAS\BLL\Almoxarifado.cs" />
     <Compile Include="CAMADAS\BLL\Fornecedor.cs" />
     <Compile Include="CAMADAS\BLL\Setor.cs" />
     <Compile Include="CAMADAS\DAL\Almoxarifado.cs" />

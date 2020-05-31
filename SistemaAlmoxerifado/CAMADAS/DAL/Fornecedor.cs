@@ -48,7 +48,7 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                 cmd.ExecuteNonQuery();
             }
             catch {
-                Console.WriteLine("Erro no Update Fornecedor");
+                Console.WriteLine("Erro no Insert de Fornecedor");
             }
             finally {
                 conexao.Close();
@@ -95,6 +95,5 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                 conexao.Close();
             }
         }
-
     }
 }
