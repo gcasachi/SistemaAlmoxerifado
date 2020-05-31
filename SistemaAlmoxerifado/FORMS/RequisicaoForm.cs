@@ -24,6 +24,8 @@ namespace SistemaAlmoxerifado.FORMS {
             dgvProdutos.DataSource = "";
             dgvProdutos.DataSource = bllAlmoxarifado.Select();
 
+
+
             CAMADAS.BLL.Requisicao bllRequisicao = new CAMADAS.BLL.Requisicao();
             dgvRequisicoes.DataSource = "";
             dgvRequisicoes.DataSource = bllRequisicao.Select();
