@@ -24,8 +24,8 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
 
                 while (dados.Read()) {
                     MODEL.Almoxarifado almoxarifado = new MODEL.Almoxarifado();
-                    almoxarifado.idProduto = Convert.ToInt32(dados["id_produto"].ToString());
-                    almoxarifado.fornecedorID = Convert.ToInt32(dados["fornecedor_id"].ToString());
+                    almoxarifado.id = Convert.ToInt32(dados["id"].ToString());
+                    almoxarifado.fornecedorID = Convert.ToInt32(dados["fornecedorID"].ToString());
                     almoxarifado.nome = dados["nome"].ToString();
                     almoxarifado.quantidade = Convert.ToInt32(dados["quantidade"].ToString());
 
@@ -44,10 +44,10 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
         public void Insert(MODEL.Almoxarifado almoxarifado) {
             SqlConnection conexao = new SqlConnection(strCon);
 
-            string sql = "INSERT INTO Almoxarifado VALUES (@fornecedor_id, @nome, @quantidade);";
+            string sql = "INSERT INTO Almoxarifado VALUES (@fornecedorID, @nome, @quantidade);";
             SqlCommand cmd = new SqlCommand(sql, conexao);
 
-            cmd.Parameters.AddWithValue("@fornecedor_id", almoxarifado.fornecedorID);
+            cmd.Parameters.AddWithValue("@fornecedorID", almoxarifado.fornecedorID);
             cmd.Parameters.AddWithValue("@nome", almoxarifado.nome);
             cmd.Parameters.AddWithValue("@quantidade", almoxarifado.quantidade);
 
@@ -66,12 +66,12 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
         public void Update(MODEL.Almoxarifado almoxarifado) {
             SqlConnection conexao = new SqlConnection(strCon);
 
-            string sql = "UPDATE Almoxarifado SET fornecedorID=@fornecedor_id, quantidade=@quantidade ";
+            string sql = "UPDATE Almoxarifado SET fornecedorID=@fornecedorID, quantidade=@quantidade ";
             sql += "WHERE id=@id;";
             SqlCommand cmd = new SqlCommand(sql, conexao);
 
-            cmd.Parameters.AddWithValue("@id_produto", almoxarifado.idProduto);
-            cmd.Parameters.AddWithValue("@fornecedor_id", almoxarifado.fornecedorID);
+            cmd.Parameters.AddWithValue("@id", almoxarifado.id);
+            cmd.Parameters.AddWithValue("@fornecedorID", almoxarifado.fornecedorID);
             cmd.Parameters.AddWithValue("@quantidade", almoxarifado.quantidade);
 
             try {
@@ -89,9 +89,9 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
         public void Delete(int idProduto) {
             SqlConnection conexao = new SqlConnection(strCon);
 
-            string sql = "DELETE FROM Almoxarifado WHERE idProduto=@id_produto;";
+            string sql = "DELETE FROM Almoxarifado WHERE id=@id;";
             SqlCommand cmd = new SqlCommand(sql, conexao);
-            cmd.Parameters.AddWithValue("@id_produto", idProduto);
+            cmd.Parameters.AddWithValue("@id", idProduto);
 
             try {
                 conexao.Open();

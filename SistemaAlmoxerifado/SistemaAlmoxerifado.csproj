@@ -97,6 +97,9 @@
     <EmbeddedResource Include="FORMS\FornecedorForm.resx">
       <DependentUpon>FornecedorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\RequisicaoForm.resx">
+      <DependentUpon>RequisicaoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMS\SetoresForm.resx">
       <DependentUpon>SetoresForm.cs</DependentUpon>
     </EmbeddedResource>

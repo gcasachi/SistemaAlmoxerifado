@@ -24,7 +24,7 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                     MODEL.Requisicao requisicao = new MODEL.Requisicao();
 
                     requisicao.id = Convert.ToInt32(dados["id"].ToString());
-                    requisicao.produtoID = Convert.ToInt32(dados["produto_id"].ToString());
+                    requisicao.produtoID = Convert.ToInt32(dados["produtoID"].ToString());
                     requisicao.quantidade = Convert.ToInt32(dados["quantidade"].ToString());
                     requisicao.data = Convert.ToDateTime(dados["data"].ToString());
 
@@ -43,11 +43,11 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
         public void Insert(MODEL.Requisicao requisicao) {
             SqlConnection conexao = new SqlConnection(strCon);
 
-            string sql = "INSERT INTO Requisicao VALUES (@setor_id, @produto_id, @quantidade, @data);";
+            string sql = "INSERT INTO Requisicao VALUES (@setorID, @produtoID, @quantidade, @data);";
             SqlCommand cmd = new SqlCommand(sql, conexao);
 
-            cmd.Parameters.AddWithValue("@setor_id", requisicao.setorID);
-            cmd.Parameters.AddWithValue("@produto_id", requisicao.produtoID);
+            cmd.Parameters.AddWithValue("@setorID", requisicao.setorID);
+            cmd.Parameters.AddWithValue("@produtoID", requisicao.produtoID);
             cmd.Parameters.AddWithValue("@quantidade", requisicao.quantidade);
             cmd.Parameters.AddWithValue("@data", requisicao.data);
 

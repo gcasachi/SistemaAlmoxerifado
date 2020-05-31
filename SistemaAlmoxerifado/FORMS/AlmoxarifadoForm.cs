@@ -86,7 +86,7 @@ namespace SistemaAlmoxerifado.FORMS {
             DialogResult resposta = MessageBox.Show(msg, titMsg, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (resposta == DialogResult.Yes) {
                 CAMADAS.MODEL.Almoxarifado almoxarifado = new CAMADAS.MODEL.Almoxarifado();
-                almoxarifado.idProduto = Convert.ToInt32(lblID.Text);
+                almoxarifado.id = Convert.ToInt32(lblID.Text);
                 almoxarifado.fornecedorID = Convert.ToInt32(txtFornecedor.Text);
                 almoxarifado.nome = txtItem.Text;
                 almoxarifado.quantidade = Convert.ToInt32(txtQuantidade.Text);
@@ -133,7 +133,7 @@ namespace SistemaAlmoxerifado.FORMS {
         }
 
         private void dgvItens_DoubleClick(object sender, EventArgs e) {
-            lblID.Text = dgvItens.SelectedRows[0].Cells["idProduto"].Value.ToString();
+            lblID.Text = dgvItens.SelectedRows[0].Cells["id"].Value.ToString();
             cbFornecedor.SelectedValue = Convert.ToInt32(dgvItens.SelectedRows[0].Cells["fornecedorID"].Value.ToString());
             txtFornecedor.Text = dgvItens.SelectedRows[0].Cells["fornecedorID"].Value.ToString();
             txtItem.Text = dgvItens.SelectedRows[0].Cells["nome"].Value.ToString();

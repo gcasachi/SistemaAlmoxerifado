@@ -13,5 +13,9 @@ namespace SistemaAlmoxerifado.FORMS {
         public RequisicaoForm() {
             InitializeComponent();
         }
+
+        private void RequisicaoForm_Load(object sender, EventArgs e) {
+
+        }
     }
 }
