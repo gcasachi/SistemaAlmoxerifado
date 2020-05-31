@@ -40,13 +40,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtData = new System.Windows.Forms.TextBox();
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
-            this.dgvRequisicaoItens = new System.Windows.Forms.DataGridView();
+            this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRequisicaoItens)).BeginInit();
+            this.dgvRequisicoes = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRequisicoes)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -190,15 +193,15 @@
             this.txtNomeProduto.Size = new System.Drawing.Size(139, 20);
             this.txtNomeProduto.TabIndex = 17;
             // 
-            // dgvRequisicaoItens
+            // dgvProdutos
             // 
-            this.dgvRequisicaoItens.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvRequisicaoItens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRequisicaoItens.Location = new System.Drawing.Point(23, 307);
-            this.dgvRequisicaoItens.Name = "dgvRequisicaoItens";
-            this.dgvRequisicaoItens.Size = new System.Drawing.Size(473, 131);
-            this.dgvRequisicaoItens.TabIndex = 18;
-            this.dgvRequisicaoItens.DoubleClick += new System.EventHandler(this.dgvRequisicaoItens_DoubleClick);
+            this.dgvProdutos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProdutos.Location = new System.Drawing.Point(515, 118);
+            this.dgvProdutos.Name = "dgvProdutos";
+            this.dgvProdutos.Size = new System.Drawing.Size(463, 131);
+            this.dgvProdutos.TabIndex = 18;
+            this.dgvProdutos.DoubleClick += new System.EventHandler(this.dgvRequisicaoItens_DoubleClick);
             // 
             // btnCancelar
             // 
@@ -239,6 +242,7 @@
             this.btnGravar.TabIndex = 62;
             this.btnGravar.Text = "&Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnNovo
             // 
@@ -251,17 +255,37 @@
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // dgvRequisicoes
+            // 
+            this.dgvRequisicoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRequisicoes.Location = new System.Drawing.Point(19, 320);
+            this.dgvRequisicoes.Name = "dgvRequisicoes";
+            this.dgvRequisicoes.Size = new System.Drawing.Size(544, 142);
+            this.dgvRequisicoes.TabIndex = 66;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(696, 86);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(119, 20);
+            this.label10.TabIndex = 67;
+            this.label10.Text = "Lista de Itens";
+            // 
             // RequisicaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(990, 487);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.dgvRequisicoes);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.dgvRequisicaoItens);
+            this.Controls.Add(this.dgvProdutos);
             this.Controls.Add(this.txtNomeProduto);
             this.Controls.Add(this.txtData);
             this.Controls.Add(this.label9);
@@ -282,7 +306,8 @@
             this.Name = "RequisicaoForm";
             this.Text = "RequisicaoForm";
             this.Load += new System.EventHandler(this.RequisicaoForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRequisicaoItens)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRequisicoes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,11 +332,13 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtData;
         private System.Windows.Forms.TextBox txtNomeProduto;
-        private System.Windows.Forms.DataGridView dgvRequisicaoItens;
+        private System.Windows.Forms.DataGridView dgvProdutos;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.DataGridView dgvRequisicoes;
+        private System.Windows.Forms.Label label10;
     }
 }

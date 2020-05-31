@@ -33,7 +33,7 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                 }
             }
             catch {
-                Console.WriteLine("Erro no Select de Almoxarifado");
+                Console.WriteLine("Erro no Select do Produto");
             }
             finally {
                 conexao.Close();
@@ -56,7 +56,7 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                 cmd.ExecuteNonQuery();
             }
             catch {
-                Console.WriteLine("Erro no Insert Almoxarifado");
+                Console.WriteLine("Erro no Insert do Produto");
             }
             finally {
                 conexao.Close();
@@ -66,12 +66,11 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
         public void Update(MODEL.Almoxarifado almoxarifado) {
             SqlConnection conexao = new SqlConnection(strCon);
 
-            string sql = "UPDATE Almoxarifado SET fornecedorID=@fornecedorID, quantidade=@quantidade ";
+            string sql = "UPDATE Almoxarifado SET quantidade=@quantidade ";
             sql += "WHERE id=@id;";
             SqlCommand cmd = new SqlCommand(sql, conexao);
 
             cmd.Parameters.AddWithValue("@id", almoxarifado.id);
-            cmd.Parameters.AddWithValue("@fornecedorID", almoxarifado.fornecedorID);
             cmd.Parameters.AddWithValue("@quantidade", almoxarifado.quantidade);
 
             try {
@@ -79,7 +78,7 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                 cmd.ExecuteNonQuery();
             }
             catch {
-                Console.WriteLine("Erro sql atualizar Almoxarifado...");
+                Console.WriteLine("Erro sql ao atualizar Produto...");
             }
             finally {
                 conexao.Close();
@@ -98,7 +97,7 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                 cmd.ExecuteNonQuery();
             }
             catch {
-                Console.WriteLine("Erro sql Remover Produto...");
+                Console.WriteLine("Erro sql ao Remover Produto...");
             }
             finally {
                 conexao.Close();

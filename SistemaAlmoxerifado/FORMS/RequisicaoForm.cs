@@ -26,8 +26,12 @@ namespace SistemaAlmoxerifado.FORMS {
             cbSetor.DataSource = bllSetor.Select();
 
             CAMADAS.BLL.Almoxarifado bllAlmoxarifado = new CAMADAS.BLL.Almoxarifado();
-            dgvRequisicaoItens.DataSource = "";
-            dgvRequisicaoItens.DataSource = bllAlmoxarifado.Select();
+            dgvProdutos.DataSource = "";
+            dgvProdutos.DataSource = bllAlmoxarifado.Select();
+
+            CAMADAS.BLL.Requisicao bllRequisicao = new CAMADAS.BLL.Requisicao();
+            dgvRequisicoes.DataSource = "";
+            dgvRequisicoes.DataSource = bllRequisicao.Select();
 
             habilitaControles(false);
         }
@@ -68,9 +72,71 @@ namespace SistemaAlmoxerifado.FORMS {
         }
 
         private void dgvRequisicaoItens_DoubleClick(object sender, EventArgs e) {
-            txtIDProduto.Text = dgvRequisicaoItens.SelectedRows[0].Cells["id"].Value.ToString();
-            txtNomeProduto.Text = dgvRequisicaoItens.SelectedRows[0].Cells["nome"].Value.ToString();
-            txtQuantidadeProduto.Text = dgvRequisicaoItens.SelectedRows[0].Cells["quantidade"].Value.ToString();
+            txtIDProduto.Text = dgvProdutos.SelectedRows[0].Cells["id"].Value.ToString();
+            txtNomeProduto.Text = dgvProdutos.SelectedRows[0].Cells["nome"].Value.ToString();
+            txtQuantidadeProduto.Text = dgvProdutos.SelectedRows[0].Cells["quantidade"].Value.ToString();
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e) {
+            int quantidadeRequisitada = Convert.ToInt32(txtQuantidadeRequisitada.Text);
+            int quantidadeEstoque = Convert.ToInt32(txtQuantidadeProduto.Text);
+
+            string mensagem = "";
+            string tituloMensagem = "";
+
+            if (quantidadeRequisitada <= quantidadeEstoque) {
+                CAMADAS.BLL.Requisicao bllRequisicao = new CAMADAS.BLL.Requisicao();
+
+                if (lblID.Text == "-1") {
+                    mensagem = "Deseja criar uma nova requisição?";
+                    tituloMensagem = "Criar Requisição";
+                }
+                else {
+                    mensagem = "Deseja alterar a requisição?";
+                    tituloMensagem = "Atualizar";
+                }
+
+                DialogResult resposta = MessageBox.Show(mensagem, tituloMensagem, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+
+                if (resposta == DialogResult.Yes) {
+                    CAMADAS.MODEL.Requisicao requisicao = new CAMADAS.MODEL.Requisicao();
+
+                    requisicao.id = Convert.ToInt32(lblID.Text);
+                    requisicao.setorID = Convert.ToInt32(txtIDSetor.Text);
+                    requisicao.produtoID = Convert.ToInt32(txtIDProduto.Text);
+                    requisicao.quantidade = Convert.ToInt32(txtQuantidadeRequisitada.Text);
+                    requisicao.data = DateTime.Now;
+
+                    CAMADAS.MODEL.Almoxarifado almoxarifado = new CAMADAS.MODEL.Almoxarifado();
+                    almoxarifado.id = Convert.ToInt32(txtIDProduto.Text);
+                    almoxarifado.quantidade = quantidadeEstoque - quantidadeRequisitada;
+
+                    CAMADAS.BLL.Almoxarifado bllAtualizaEstoqueItem = new CAMADAS.BLL.Almoxarifado();
+                    bllAtualizaEstoqueItem.Update(almoxarifado);
+
+                    if (lblID.Text == "-1") {
+                        bllRequisicao.Insert(requisicao);
+                    }
+                    else {
+                        bllRequisicao.Update(requisicao);
+                    }
+                }
+
+                limpaControles();
+                habilitaControles(false);
+
+                dgvProdutos.DataSource = "";
+                dgvProdutos.DataSource = new CAMADAS.BLL.Almoxarifado().Select();
+                dgvRequisicoes.DataSource = "";
+                dgvRequisicoes.DataSource = bllRequisicao.Select();
+            }
+
+            else {
+                mensagem = "A quantidade requisitada excede o estoque!";
+                tituloMensagem = "Erro";
+
+                MessageBox.Show(mensagem, tituloMensagem, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
