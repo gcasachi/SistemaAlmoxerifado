@@ -140,5 +140,9 @@ namespace SistemaAlmoxerifado.FORMS {
             txtQuantidade.Text = dgvItens.SelectedRows[0].Cells["quantidade"].Value.ToString();
 
         }
+
+        private void btnRemover_Click(object sender, EventArgs e) {
+
+        }
     }
 }
