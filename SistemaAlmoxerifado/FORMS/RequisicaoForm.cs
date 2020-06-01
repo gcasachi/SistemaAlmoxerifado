@@ -127,7 +127,7 @@ namespace SistemaAlmoxerifado.FORMS {
                 limpaControles();
                 habilitaControles(false);
 
-                dgvProdutos.DataSource = "";
+                
                 dgvProdutos.DataSource = new CAMADAS.BLL.Almoxarifado().Select();
                 dgvRequisicoes.DataSource = "";
                 dgvRequisicoes.DataSource = bllRequisicao.Select();
@@ -192,7 +192,7 @@ namespace SistemaAlmoxerifado.FORMS {
 
             limpaControles();
 
-            dgvProdutos.DataSource = "";
+            
             dgvProdutos.DataSource = new CAMADAS.BLL.Almoxarifado().Select();
             dgvRequisicoes.DataSource = "";
             dgvRequisicoes.DataSource = bllRequisicao.Select();
