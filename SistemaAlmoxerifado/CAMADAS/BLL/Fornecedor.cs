@@ -12,6 +12,11 @@ namespace SistemaAlmoxerifado.CAMADAS.BLL {
             return dalFornecedor.Select();
         }
 
+        public MODEL.Fornecedor SelectByID(int idFornecedor) {
+            DAL.Fornecedor dalFornecedor = new DAL.Fornecedor();
+            return dalFornecedor.SelectByID(idFornecedor);
+        }
+
         public void Insert(MODEL.Fornecedor fornecedor) {
             DAL.Fornecedor dalFornecedor = new DAL.Fornecedor();
             dalFornecedor.Insert(fornecedor);

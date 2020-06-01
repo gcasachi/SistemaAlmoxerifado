@@ -29,6 +29,11 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                     almoxarifado.nome = dados["nome"].ToString();
                     almoxarifado.quantidade = Convert.ToInt32(dados["quantidade"].ToString());
 
+                    //Recupera nome Fornecedor
+                    CAMADAS.BLL.Fornecedor bllFornecedor = new BLL.Fornecedor();
+                    CAMADAS.MODEL.Fornecedor fornecedor = bllFornecedor.SelectByID(almoxarifado.fornecedorID);
+                    almoxarifado.fornecedor = fornecedor.nome;
+
                     lstAlmoxarifado.Add(almoxarifado);
                 }
             }

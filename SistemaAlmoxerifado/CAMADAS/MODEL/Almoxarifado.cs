@@ -9,6 +9,7 @@ namespace SistemaAlmoxerifado.CAMADAS.MODEL {
 
         public int id { get; set; }
         public int fornecedorID { get; set; }
+        public string fornecedor{ get; set; }
         public string nome { get; set; }
         public int quantidade { get; set; }
     }

@@ -40,6 +40,11 @@
             this.txtFornecedor = new System.Windows.Forms.TextBox();
             this.dgvItens = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +57,7 @@
             this.btnVoltar.TabIndex = 61;
             this.btnVoltar.Text = "&Voltar";
             this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // btnCancelar
             // 
@@ -187,12 +193,22 @@
             // 
             // dgvItens
             // 
+            this.dgvItens.AllowUserToAddRows = false;
+            this.dgvItens.AllowUserToDeleteRows = false;
+            this.dgvItens.AllowUserToOrderColumns = true;
             this.dgvItens.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvItens.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvItens.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvItens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.fornecedorID,
+            this.fornecedor,
+            this.nome,
+            this.quantidade});
             this.dgvItens.Location = new System.Drawing.Point(28, 289);
             this.dgvItens.Name = "dgvItens";
+            this.dgvItens.ReadOnly = true;
             this.dgvItens.Size = new System.Drawing.Size(747, 143);
             this.dgvItens.TabIndex = 46;
             this.dgvItens.DoubleClick += new System.EventHandler(this.dgvItens_DoubleClick);
@@ -205,6 +221,47 @@
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 45;
             this.label2.Text = "Fornecedor:";
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 43;
+            // 
+            // fornecedorID
+            // 
+            this.fornecedorID.DataPropertyName = "fornecedorID";
+            this.fornecedorID.HeaderText = "fornecedorID";
+            this.fornecedorID.Name = "fornecedorID";
+            this.fornecedorID.ReadOnly = true;
+            this.fornecedorID.Visible = false;
+            this.fornecedorID.Width = 94;
+            // 
+            // fornecedor
+            // 
+            this.fornecedor.DataPropertyName = "fornecedor";
+            this.fornecedor.HeaderText = "FORNECEDOR";
+            this.fornecedor.Name = "fornecedor";
+            this.fornecedor.ReadOnly = true;
+            this.fornecedor.Width = 107;
+            // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "nome";
+            this.nome.HeaderText = "NOME";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Width = 64;
+            // 
+            // quantidade
+            // 
+            this.quantidade.DataPropertyName = "quantidade";
+            this.quantidade.HeaderText = "QUANTIDADE";
+            this.quantidade.Name = "quantidade";
+            this.quantidade.ReadOnly = true;
+            this.quantidade.Width = 103;
             // 
             // AlmoxarifadoForm
             // 
@@ -256,5 +313,10 @@
         private System.Windows.Forms.TextBox txtFornecedor;
         private System.Windows.Forms.DataGridView dgvItens;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fornecedorID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fornecedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
     }
 }

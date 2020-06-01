@@ -101,7 +101,6 @@ namespace SistemaAlmoxerifado.FORMS {
 
             limpaControles();
             habilitaControles(false);
-            dgvItens.DataSource = "";
             dgvItens.DataSource = bllAlmo.Select();
         }
 
@@ -142,7 +141,28 @@ namespace SistemaAlmoxerifado.FORMS {
         }
 
         private void btnRemover_Click(object sender, EventArgs e) {
+            CAMADAS.BLL.Almoxarifado bllAlmo = new CAMADAS.BLL.Almoxarifado();
+            string msg = "Não há Item para remover";
+            string titBox = "Remover";
 
+            if (lblID.Text != "") {
+                msg = "Deseja Remover o Item: " + txtItem.Text;
+                DialogResult resposta = MessageBox.Show(msg, titBox, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (resposta == DialogResult.Yes) {
+                    int id = Convert.ToInt32(lblID.Text);
+                    bllAlmo.Delete(id);
+                }
+            }
+            else {
+                MessageBox.Show(msg, titBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            limpaControles();
+            dgvItens.DataSource = bllAlmo.Select();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e) {
+            this.Dispose();
         }
     }
 }

@@ -36,6 +36,34 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
             return lstFornecedores;
         }
 
+        public MODEL.Fornecedor SelectByID(int id) {
+
+            MODEL.Fornecedor fornecedor = new MODEL.Fornecedor();
+
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "SELECT * FROM Fornecedor WHERE id=@id;";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            try {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader();
+                if (dados.Read()) {
+                    
+                    fornecedor.id = Convert.ToInt32(dados["id"].ToString());
+                    fornecedor.nome = dados["nome"].ToString();
+                    
+                }
+            }
+            catch {
+                Console.WriteLine("Erro no SelectByID do Fornecedor");
+            }
+            finally {
+                conexao.Close();
+            }
+            return fornecedor;
+        }
+
         public void Insert(MODEL.Fornecedor fornecedor) {
             SqlConnection conexao = new SqlConnection(strCon);
 
