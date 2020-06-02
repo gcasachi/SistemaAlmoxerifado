@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaAlmoxerifado.FORMS {
-    public partial class menuForm : Form {
-        public menuForm() {
+    public partial class MenuForm : Form {
+        public MenuForm() {
             InitializeComponent();
         }
     }

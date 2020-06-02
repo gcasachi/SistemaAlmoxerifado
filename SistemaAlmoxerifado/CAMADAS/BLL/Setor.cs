@@ -11,6 +11,11 @@ namespace SistemaAlmoxerifado.CAMADAS.BLL {
             return dalSetor.Select();
         }
 
+        public MODEL.Setor SelectByID(int idSetor) {
+            DAL.Setor dalSetor = new DAL.Setor();
+            return dalSetor.SelectByID(idSetor);
+        }
+
         public void Insert(MODEL.Setor setor) {
             DAL.Setor dalSetor = new DAL.Setor();
             dalSetor.Insert(setor);

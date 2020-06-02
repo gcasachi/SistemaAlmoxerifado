@@ -46,10 +46,10 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
             return lstAlmoxarifado;
         }
 
-        public int SelectByID(int id) {
-            SqlConnection conexao = new SqlConnection(strCon);
-            int quantidadeEstoque = 0;
+        public MODEL.Almoxarifado SelectByID(int id) {
+            MODEL.Almoxarifado almoxarifado = new MODEL.Almoxarifado();
 
+            SqlConnection conexao = new SqlConnection(strCon);
             string sql = "SELECT * FROM Almoxarifado WHERE id=@id;";
             SqlCommand cmd = new SqlCommand(sql, conexao);
             cmd.Parameters.AddWithValue("@id", id);
@@ -58,18 +58,22 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                 conexao.Open();
                 SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
-                while (dados.Read()) {
-                    quantidadeEstoque = Convert.ToInt32(dados["quantidade"].ToString());
+                if(dados.Read()) {
+                    
+                    almoxarifado.id = Convert.ToInt32(dados["id"].ToString());
+                    almoxarifado.fornecedorID = Convert.ToInt32(dados["fornecedorID"].ToString());
+                    almoxarifado.nome = dados["nome"].ToString();
+                    almoxarifado.quantidade = Convert.ToInt32(dados["quantidade"].ToString());
+                    
                 }
             }
             catch {
-                Console.WriteLine("Erro listar Banco sql-Livros");
+                Console.WriteLine("Erro listar Banco sql-Itens");
             }
             finally {
                 conexao.Close();
             }
-
-            return quantidadeEstoque;
+            return almoxarifado;
         }
 
         public void Insert(MODEL.Almoxarifado almoxarifado) {

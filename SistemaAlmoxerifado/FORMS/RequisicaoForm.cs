@@ -129,7 +129,6 @@ namespace SistemaAlmoxerifado.FORMS {
 
                 
                 dgvProdutos.DataSource = new CAMADAS.BLL.Almoxarifado().Select();
-                dgvRequisicoes.DataSource = "";
                 dgvRequisicoes.DataSource = bllRequisicao.Select();
             }
 
@@ -142,10 +141,12 @@ namespace SistemaAlmoxerifado.FORMS {
         }
 
         private void dgvRequisicoes_DoubleClick(object sender, EventArgs e) {
-            lblID.Text = dgvRequisicoes.SelectedRows[0].Cells["id"].Value.ToString();
+            lblID.Text = dgvRequisicoes.SelectedRows[0].Cells["idRC"].Value.ToString();
             txtIDSetor.Text = dgvRequisicoes.SelectedRows[0].Cells["setorID"].Value.ToString();
+            cbSetor.SelectedValue = dgvRequisicoes.SelectedRows[0].Cells["setor"].Value;
             txtIDProduto.Text = dgvRequisicoes.SelectedRows[0].Cells["produtoID"].Value.ToString();
-            txtQuantidadeRequisitada.Text = dgvRequisicoes.SelectedRows[0].Cells["quantidade"].Value.ToString();
+            txtNomeProduto.Text = dgvRequisicoes.SelectedRows[0].Cells["produto"].Value.ToString();
+            txtQuantidadeRequisitada.Text = dgvRequisicoes.SelectedRows[0].Cells["quantidadeRC"].Value.ToString();
             txtData.Text = dgvRequisicoes.SelectedRows[0].Cells["data"].Value.ToString();
         }
 
@@ -170,10 +171,13 @@ namespace SistemaAlmoxerifado.FORMS {
                 DialogResult resposta = MessageBox.Show(mensagem, tituloMensagem, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
                 if (resposta == DialogResult.Yes) {
+
+                    CAMADAS.BLL.Almoxarifado bllAlmo = new CAMADAS.BLL.Almoxarifado();
                     CAMADAS.MODEL.Almoxarifado almoxarifado = new CAMADAS.MODEL.Almoxarifado();
                     almoxarifado.id = Convert.ToInt32(txtIDProduto.Text);
 
-                    int quantidadeEstoque = new CAMADAS.BLL.Almoxarifado().SelectByID(almoxarifado.id);
+                    almoxarifado = bllAlmo.SelectByID(almoxarifado.id);
+                    int quantidadeEstoque = almoxarifado.quantidade;
                     int quantidadeRequisitada = Convert.ToInt32(txtQuantidadeRequisitada.Text);
 
                     almoxarifado.quantidade = quantidadeEstoque + quantidadeRequisitada;

@@ -12,7 +12,7 @@ namespace SistemaAlmoxerifado.CAMADAS.BLL {
             return dalAlmoxarifado.Select();
         }
 
-        public int SelectByID(int id) {
+        public MODEL.Almoxarifado SelectByID(int id) {
             DAL.Almoxarifado dalAlmoxarifado = new DAL.Almoxarifado();
             return dalAlmoxarifado.SelectByID(id);
         }

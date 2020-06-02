@@ -29,6 +29,15 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                     requisicao.quantidade = Convert.ToInt32(dados["quantidade"].ToString());
                     requisicao.data = Convert.ToDateTime(dados["data"].ToString());
 
+                    //recuperar nome Setor e Produto
+                    CAMADAS.BLL.Setor bllSetor = new CAMADAS.BLL.Setor();
+                    CAMADAS.MODEL.Setor setor= bllSetor.SelectByID(requisicao.setorID);
+                    requisicao.setor = setor.nome;
+
+                    BLL.Almoxarifado bllAlmo = new BLL.Almoxarifado();
+                    MODEL.Almoxarifado almoxarifado = bllAlmo.SelectByID(requisicao.produtoID);
+                    requisicao.produto = almoxarifado.nome;
+
                     lstFornecedores.Add(requisicao);
                 }
             }

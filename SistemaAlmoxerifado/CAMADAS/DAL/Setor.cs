@@ -35,6 +35,34 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
             return lstSetores;
         }
 
+        public MODEL.Setor SelectByID(int id) {
+
+            MODEL.Setor setor = new MODEL.Setor();
+
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "SELECT * FROM Setor WHERE id=@id;";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            try {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader();
+                if (dados.Read()) {
+
+                    setor.id = Convert.ToInt32(dados["id"].ToString());
+                    setor.nome = dados["nome"].ToString();
+
+                }
+            }
+            catch {
+                Console.WriteLine("Erro no SelectByID do Fornecedor");
+            }
+            finally {
+                conexao.Close();
+            }
+            return setor;
+        }
+
         public void Insert(MODEL.Setor setor) {
             SqlConnection conexao = new SqlConnection(strCon);
             string sql = "INSERT INTO Setor VALUES (@nome);";
