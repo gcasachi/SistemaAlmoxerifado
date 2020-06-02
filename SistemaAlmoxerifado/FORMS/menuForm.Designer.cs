@@ -153,7 +153,7 @@
             this.btnAlmo.ForeColor = System.Drawing.Color.White;
             this.btnAlmo.Image = global::SistemaAlmoxerifado.Properties.Resources.data_storage;
             this.btnAlmo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlmo.Location = new System.Drawing.Point(1, 264);
+            this.btnAlmo.Location = new System.Drawing.Point(1, 217);
             this.btnAlmo.Name = "btnAlmo";
             this.btnAlmo.Size = new System.Drawing.Size(184, 39);
             this.btnAlmo.TabIndex = 5;
@@ -170,7 +170,7 @@
             this.btnSobre.ForeColor = System.Drawing.Color.White;
             this.btnSobre.Image = global::SistemaAlmoxerifado.Properties.Resources.help_operator__3_;
             this.btnSobre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSobre.Location = new System.Drawing.Point(0, 568);
+            this.btnSobre.Location = new System.Drawing.Point(0, 518);
             this.btnSobre.Name = "btnSobre";
             this.btnSobre.Size = new System.Drawing.Size(184, 41);
             this.btnSobre.TabIndex = 4;
@@ -187,7 +187,7 @@
             this.btnClientes.ForeColor = System.Drawing.Color.White;
             this.btnClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnClientes.Image")));
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(-6, 129);
+            this.btnClientes.Location = new System.Drawing.Point(-6, 82);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(184, 39);
             this.btnClientes.TabIndex = 3;
@@ -204,7 +204,7 @@
             this.btnFornecedor.ForeColor = System.Drawing.Color.White;
             this.btnFornecedor.Image = ((System.Drawing.Image)(resources.GetObject("btnFornecedor.Image")));
             this.btnFornecedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFornecedor.Location = new System.Drawing.Point(-9, 219);
+            this.btnFornecedor.Location = new System.Drawing.Point(-9, 172);
             this.btnFornecedor.Name = "btnFornecedor";
             this.btnFornecedor.Size = new System.Drawing.Size(187, 39);
             this.btnFornecedor.TabIndex = 1;
@@ -221,7 +221,7 @@
             this.btnRequisicao.ForeColor = System.Drawing.Color.White;
             this.btnRequisicao.Image = ((System.Drawing.Image)(resources.GetObject("btnRequisicao.Image")));
             this.btnRequisicao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRequisicao.Location = new System.Drawing.Point(-9, 174);
+            this.btnRequisicao.Location = new System.Drawing.Point(-9, 127);
             this.btnRequisicao.Name = "btnRequisicao";
             this.btnRequisicao.Size = new System.Drawing.Size(193, 39);
             this.btnRequisicao.TabIndex = 2;

@@ -72,12 +72,14 @@ namespace SistemaAlmoxerifado.FORMS {
             if (formulario == null) {
                 formulario = new Forms();
                 formulario.TopLevel = false;
-                formulario.FormBorderStyle = FormBorderStyle.None;
-                formulario.Dock = DockStyle.Fill;
+                //formulario.FormBorderStyle = FormBorderStyle.None;
+                //formulario.Dock = DockStyle.Fill;
                 painelConteudo.Controls.Add(formulario);
                 painelConteudo.Tag = formulario;
+                formulario.WindowState = FormWindowState.Maximized;
                 formulario.Show();
                 formulario.BringToFront();
+
             }
             else {
                 if (formulario.WindowState == FormWindowState.Minimized)

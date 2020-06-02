@@ -267,7 +267,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(906, 570);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnRemover);
@@ -286,6 +286,7 @@
             this.Controls.Add(this.dgvItens);
             this.Controls.Add(this.label2);
             this.Name = "AlmoxarifadoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "AlmoxarifadoForm";
             this.Load += new System.EventHandler(this.AlmoxarifadoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).EndInit();
