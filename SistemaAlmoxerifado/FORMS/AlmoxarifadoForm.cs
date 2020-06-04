@@ -164,10 +164,6 @@ namespace SistemaAlmoxerifado.FORMS {
 
             limpaControles();
             dgvItens.DataSource = bllAlmo.Select();
-        }
-
-        private void btnVoltar_Click(object sender, EventArgs e) {
-            this.Dispose();
-        }
+        }    
     }
 }

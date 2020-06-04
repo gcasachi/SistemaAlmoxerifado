@@ -205,10 +205,6 @@ namespace SistemaAlmoxerifado.FORMS {
         private void btnCancelar_Click(object sender, EventArgs e) {
             limpaControles();
             habilitaControles(false);
-        }
-
-        private void btnVoltar_Click(object sender, EventArgs e) {
-            this.Dispose();
-        }
+        }      
     }
 }

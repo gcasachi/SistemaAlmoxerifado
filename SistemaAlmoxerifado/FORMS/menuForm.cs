@@ -68,35 +68,58 @@ namespace SistemaAlmoxerifado.FORMS {
         private void AbrirNoPainel<Forms>() where Forms : Form, new() {
             Form formulario = new Forms();
             formulario = painelConteudo.Controls.OfType<Forms>().FirstOrDefault();
+           
 
-            if (formulario != null) {
-                formulario = null;
+            if (formulario == null) {
+                formulario = new Forms();
+                formulario.TopLevel = false;
+                //formulario.FormBorderStyle = FormBorderStyle.None;
+                //formulario.Dock = DockStyle.Fill;
+                painelConteudo.Controls.Add(formulario);
+                painelConteudo.Tag = formulario;
+                //formulario.WindowState = FormWindowState.Maximized;
+                formulario.Show();
+                formulario.BringToFront();
+
+            }
+            else {
+                if (formulario.WindowState == FormWindowState.Minimized)
+                    formulario.WindowState = FormWindowState.Normal;
+                formulario.BringToFront();
             }
 
-            formulario = new Forms();
-            formulario.TopLevel = false;
-            //formulario.FormBorderStyle = FormBorderStyle.None;
-            //formulario.Dock = DockStyle.Fill;
-            painelConteudo.Controls.Add(formulario);
-            painelConteudo.Tag = formulario;
-            formulario.WindowState = FormWindowState.Maximized;
-            formulario.Show();
-            formulario.BringToFront();
-        }
 
+        }
+         
         private void btnClientes_Click(object sender, EventArgs e) {
+           
+
+            if (Application.OpenForms.OfType<Form>().Count() > 1){
+                Application.OpenForms.OfType<Form>().Last<Form>().Dispose();
+            }
+           
             AbrirNoPainel<SetoresForm>();
+
         }
 
         private void btnRequisicao_Click(object sender, EventArgs e) {
+            if (Application.OpenForms.OfType<Form>().Count() > 1) {
+                Application.OpenForms.OfType<Form>().Last<Form>().Dispose();
+            }
             AbrirNoPainel<RequisicaoForm>();
         }
 
         private void btnFornecedor_Click(object sender, EventArgs e) {
+            if (Application.OpenForms.OfType<Form>().Count() > 1) {
+                Application.OpenForms.OfType<Form>().Last<Form>().Dispose();
+            }
             AbrirNoPainel<FornecedorForm>();
         }
 
         private void btnAlmo_Click(object sender, EventArgs e) {
+            if (Application.OpenForms.OfType<Form>().Count() > 1) {
+                Application.OpenForms.OfType<Form>().Last<Form>().Dispose();
+            }
             AbrirNoPainel<AlmoxarifadoForm>();
         }
 

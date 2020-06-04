@@ -113,10 +113,6 @@ namespace SistemaAlmoxerifado.FORMS {
             dgvSetor.DataSource = bllSetor.Select();
         }
 
-        private void btnVoltar_Click(object sender, EventArgs e) {
-            this.Dispose();
-        }
-
         private void dgvSetor_DoubleClick(object sender, EventArgs e) {
             lblID.Text = dgvSetor.SelectedRows[0].Cells["id"].Value.ToString();
             txtNome.Text = dgvSetor.SelectedRows[0].Cells["nome"].Value.ToString();
