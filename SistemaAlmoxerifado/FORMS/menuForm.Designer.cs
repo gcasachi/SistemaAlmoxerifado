@@ -153,7 +153,7 @@
             this.btnAlmo.ForeColor = System.Drawing.Color.White;
             this.btnAlmo.Image = global::SistemaAlmoxerifado.Properties.Resources.data_storage;
             this.btnAlmo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlmo.Location = new System.Drawing.Point(1, 217);
+            this.btnAlmo.Location = new System.Drawing.Point(0, 217);
             this.btnAlmo.Name = "btnAlmo";
             this.btnAlmo.Size = new System.Drawing.Size(184, 39);
             this.btnAlmo.TabIndex = 5;
@@ -170,7 +170,7 @@
             this.btnSobre.ForeColor = System.Drawing.Color.White;
             this.btnSobre.Image = global::SistemaAlmoxerifado.Properties.Resources.help_operator__3_;
             this.btnSobre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSobre.Location = new System.Drawing.Point(0, 518);
+            this.btnSobre.Location = new System.Drawing.Point(0, 565);
             this.btnSobre.Name = "btnSobre";
             this.btnSobre.Size = new System.Drawing.Size(184, 41);
             this.btnSobre.TabIndex = 4;

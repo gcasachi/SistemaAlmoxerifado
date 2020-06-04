@@ -124,7 +124,10 @@ namespace SistemaAlmoxerifado.FORMS {
         }
 
         private void btnSobre_Click(object sender, EventArgs e) {
-
+            if (Application.OpenForms.OfType<Form>().Count() > 1) {
+                Application.OpenForms.OfType<Form>().Last<Form>().Dispose();
+            }
+            AbrirNoPainel<SobreForm>();
         }
 
         
