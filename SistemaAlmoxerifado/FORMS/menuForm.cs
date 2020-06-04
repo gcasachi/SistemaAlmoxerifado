@@ -66,26 +66,22 @@ namespace SistemaAlmoxerifado.FORMS {
         }
 
         private void AbrirNoPainel<Forms>() where Forms : Form, new() {
-            Form formulario;
+            Form formulario = new Forms();
             formulario = painelConteudo.Controls.OfType<Forms>().FirstOrDefault();
 
-            if (formulario == null) {
-                formulario = new Forms();
-                formulario.TopLevel = false;
-                //formulario.FormBorderStyle = FormBorderStyle.None;
-                //formulario.Dock = DockStyle.Fill;
-                painelConteudo.Controls.Add(formulario);
-                painelConteudo.Tag = formulario;
-                formulario.WindowState = FormWindowState.Maximized;
-                formulario.Show();
-                formulario.BringToFront();
+            if (formulario != null) {
+                formulario = null;
+            }
 
-            }
-            else {
-                if (formulario.WindowState == FormWindowState.Minimized)
-                    formulario.WindowState = FormWindowState.Normal;
-                formulario.BringToFront();
-            }
+            formulario = new Forms();
+            formulario.TopLevel = false;
+            //formulario.FormBorderStyle = FormBorderStyle.None;
+            //formulario.Dock = DockStyle.Fill;
+            painelConteudo.Controls.Add(formulario);
+            painelConteudo.Tag = formulario;
+            formulario.WindowState = FormWindowState.Maximized;
+            formulario.Show();
+            formulario.BringToFront();
         }
 
         private void btnClientes_Click(object sender, EventArgs e) {

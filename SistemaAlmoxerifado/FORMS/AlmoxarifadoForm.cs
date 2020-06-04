@@ -48,6 +48,11 @@ namespace SistemaAlmoxerifado.FORMS {
         }
 
         private void btnNovo_Click(object sender, EventArgs e) {
+            CAMADAS.BLL.Fornecedor bllFornecedor = new CAMADAS.BLL.Fornecedor();
+            cbFornecedor.DisplayMember = "nome";
+            cbFornecedor.ValueMember = "id";
+            cbFornecedor.DataSource = bllFornecedor.Select();
+
             habilitaControles(true);
             limpaControles();
 
