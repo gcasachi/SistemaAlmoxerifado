@@ -82,11 +82,11 @@ namespace SistemaAlmoxerifado.FORMS {
                 formulario.BringToFront();
 
             }
-            else {
+            /*else {
                 if (formulario.WindowState == FormWindowState.Minimized)
                     formulario.WindowState = FormWindowState.Normal;
                 formulario.BringToFront();
-            }
+            }*/
 
 
         }
@@ -130,6 +130,11 @@ namespace SistemaAlmoxerifado.FORMS {
             AbrirNoPainel<SobreForm>();
         }
 
-        
+        private void btnRelatorio_Click(object sender, EventArgs e) {
+            if (Application.OpenForms.OfType<Form>().Count() > 1) {
+                Application.OpenForms.OfType<Form>().Last<Form>().Dispose();
+            }
+            AbrirNoPainel<RelatorioForm>();
+        }
     }
 }
