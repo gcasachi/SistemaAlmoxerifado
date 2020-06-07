@@ -163,10 +163,10 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
         public void Update(MODEL.Requisicao requisicao) {
             SqlConnection conexao = new SqlConnection(strCon);
 
-            string sql = "UPDATE Requisicao SET quantidade=@quantidade";
+            string sql = "UPDATE Requisicao SET quantidade=@quantidade ";
             sql += "WHERE id=@id;";
             SqlCommand cmd = new SqlCommand(sql, conexao);
-
+            cmd.Parameters.AddWithValue("@id", requisicao.id);
             cmd.Parameters.AddWithValue("@quantidade", requisicao.quantidade);
 
             try {
