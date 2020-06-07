@@ -76,7 +76,6 @@ namespace SistemaAlmoxerifado.FORMS {
             }
 
             limpaControles();
-            dgvSetor.DataSource = "";
             dgvSetor.DataSource = bllSetor.Select();
         }
 
@@ -109,7 +108,6 @@ namespace SistemaAlmoxerifado.FORMS {
 
             limpaControles();
             habilitaControles(false);
-            dgvSetor.DataSource = "";
             dgvSetor.DataSource = bllSetor.Select();
         }
 

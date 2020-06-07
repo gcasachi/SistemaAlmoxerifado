@@ -77,6 +77,12 @@
     <Compile Include="FORMS\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMS\RelatorioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\RelatorioForm.Designer.cs">
+      <DependentUpon>RelatorioForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\RequisicaoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,8 +95,17 @@
     <Compile Include="FORMS\SetoresForm.Designer.cs">
       <DependentUpon>SetoresForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMS\SobreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\SobreForm.Designer.cs">
+      <DependentUpon>SobreForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RELATORIOS\Funcao.cs" />
+    <Compile Include="RELATORIOS\relAlmoxarifado.cs" />
+    <Compile Include="RELATORIOS\relRequisicao.cs" />
     <EmbeddedResource Include="FORMS\AlmoxarifadoForm.resx">
       <DependentUpon>AlmoxarifadoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,11 +115,17 @@
     <EmbeddedResource Include="FORMS\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\RelatorioForm.resx">
+      <DependentUpon>RelatorioForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMS\RequisicaoForm.resx">
       <DependentUpon>RequisicaoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\SetoresForm.resx">
       <DependentUpon>SetoresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\SobreForm.resx">
+      <DependentUpon>SobreForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -140,6 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minimize %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\to-do-list.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

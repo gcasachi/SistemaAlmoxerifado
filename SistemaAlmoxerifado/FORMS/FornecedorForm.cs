@@ -76,8 +76,7 @@ namespace SistemaAlmoxerifado.FORMS {
                 MessageBox.Show(msg, titBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            limpaControles();
-            dgvFornecedor.DataSource = "";
+            limpaControles();           
             dgvFornecedor.DataSource = bllFornecedor.Select();
         }
 
@@ -110,7 +109,6 @@ namespace SistemaAlmoxerifado.FORMS {
 
             limpaControles();
             habilitaControles(false);
-            dgvFornecedor.DataSource = "";
             dgvFornecedor.DataSource = bllFornecedor.Select();
         }
 

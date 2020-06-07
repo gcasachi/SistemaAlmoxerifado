@@ -43,12 +43,12 @@
             this.cbFornecedor = new System.Windows.Forms.ComboBox();
             this.txtFornecedor = new System.Windows.Forms.TextBox();
             this.dgvItens = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fornecedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             this.SuspendLayout();
             // 
@@ -231,15 +231,6 @@
             this.dgvItens.TabIndex = 46;
             this.dgvItens.DoubleClick += new System.EventHandler(this.dgvItens_DoubleClick);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 227);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "Fornecedor:";
-            // 
             // id
             // 
             this.id.DataPropertyName = "id";
@@ -279,6 +270,15 @@
             this.quantidade.HeaderText = "QUANTIDADE";
             this.quantidade.Name = "quantidade";
             this.quantidade.ReadOnly = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(86, 227);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Fornecedor:";
             // 
             // AlmoxarifadoForm
             // 
