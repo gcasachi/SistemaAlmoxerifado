@@ -42,6 +42,11 @@
             this.txtData = new System.Windows.Forms.TextBox();
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -56,13 +61,18 @@
             this.quantidadeRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fornecedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gpbPesquisa = new System.Windows.Forms.GroupBox();
+            this.cbPesquisa = new System.Windows.Forms.ComboBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.txtFiltrar = new System.Windows.Forms.TextBox();
+            this.lblFIltro = new System.Windows.Forms.Label();
+            this.rdbNome = new System.Windows.Forms.RadioButton();
+            this.rdbID = new System.Windows.Forms.RadioButton();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.rdbTodos = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequisicoes)).BeginInit();
+            this.gpbPesquisa.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
@@ -232,10 +242,51 @@
             this.dgvProdutos.TabIndex = 18;
             this.dgvProdutos.DoubleClick += new System.EventHandler(this.dgvRequisicaoItens_DoubleClick);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 50;
+            // 
+            // fornecedorID
+            // 
+            this.fornecedorID.DataPropertyName = "fornecedorID";
+            this.fornecedorID.HeaderText = "ID Fornecedor";
+            this.fornecedorID.Name = "fornecedorID";
+            this.fornecedorID.ReadOnly = true;
+            this.fornecedorID.Visible = false;
+            // 
+            // fornecedor
+            // 
+            this.fornecedor.DataPropertyName = "fornecedor";
+            this.fornecedor.HeaderText = "fornecedor";
+            this.fornecedor.Name = "fornecedor";
+            this.fornecedor.ReadOnly = true;
+            this.fornecedor.Visible = false;
+            // 
+            // nome
+            // 
+            this.nome.DataPropertyName = "nome";
+            this.nome.HeaderText = "PRODUTO";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Width = 192;
+            // 
+            // quantidade
+            // 
+            this.quantidade.DataPropertyName = "quantidade";
+            this.quantidade.HeaderText = "QTD";
+            this.quantidade.Name = "quantidade";
+            this.quantidade.ReadOnly = true;
+            this.quantidade.Width = 60;
+            // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(421, 342);
+            this.btnCancelar.Location = new System.Drawing.Point(462, 342);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 65;
@@ -246,7 +297,7 @@
             // btnRemover
             // 
             this.btnRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemover.Location = new System.Drawing.Point(340, 342);
+            this.btnRemover.Location = new System.Drawing.Point(300, 342);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(75, 23);
             this.btnRemover.TabIndex = 64;
@@ -257,7 +308,7 @@
             // btnEditar
             // 
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Location = new System.Drawing.Point(259, 342);
+            this.btnEditar.Location = new System.Drawing.Point(219, 342);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 63;
@@ -268,7 +319,7 @@
             // btnGravar
             // 
             this.btnGravar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGravar.Location = new System.Drawing.Point(178, 342);
+            this.btnGravar.Location = new System.Drawing.Point(138, 342);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 62;
@@ -279,7 +330,7 @@
             // btnNovo
             // 
             this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.Location = new System.Drawing.Point(97, 342);
+            this.btnNovo.Location = new System.Drawing.Point(57, 342);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
             this.btnNovo.TabIndex = 61;
@@ -368,46 +419,105 @@
             this.label10.TabIndex = 67;
             this.label10.Text = "Lista de Itens";
             // 
-            // id
+            // gpbPesquisa
             // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 50;
+            this.gpbPesquisa.BackColor = System.Drawing.Color.Gainsboro;
+            this.gpbPesquisa.Controls.Add(this.rdbTodos);
+            this.gpbPesquisa.Controls.Add(this.cbPesquisa);
+            this.gpbPesquisa.Controls.Add(this.btnFiltrar);
+            this.gpbPesquisa.Controls.Add(this.txtFiltrar);
+            this.gpbPesquisa.Controls.Add(this.lblFIltro);
+            this.gpbPesquisa.Controls.Add(this.rdbNome);
+            this.gpbPesquisa.Controls.Add(this.rdbID);
+            this.gpbPesquisa.Location = new System.Drawing.Point(604, 98);
+            this.gpbPesquisa.Name = "gpbPesquisa";
+            this.gpbPesquisa.Size = new System.Drawing.Size(270, 211);
+            this.gpbPesquisa.TabIndex = 68;
+            this.gpbPesquisa.TabStop = false;
+            this.gpbPesquisa.Text = "Filtrar Dados";
             // 
-            // fornecedorID
+            // cbPesquisa
             // 
-            this.fornecedorID.DataPropertyName = "fornecedorID";
-            this.fornecedorID.HeaderText = "ID Fornecedor";
-            this.fornecedorID.Name = "fornecedorID";
-            this.fornecedorID.ReadOnly = true;
-            this.fornecedorID.Visible = false;
+            this.cbPesquisa.FormattingEnabled = true;
+            this.cbPesquisa.Items.AddRange(new object[] {
+            "Itens",
+            "Requisições"});
+            this.cbPesquisa.Location = new System.Drawing.Point(6, 19);
+            this.cbPesquisa.Name = "cbPesquisa";
+            this.cbPesquisa.Size = new System.Drawing.Size(121, 21);
+            this.cbPesquisa.TabIndex = 7;
+            this.cbPesquisa.SelectedIndexChanged += new System.EventHandler(this.cbPesquisa_SelectedIndexChanged);
             // 
-            // fornecedor
+            // btnFiltrar
             // 
-            this.fornecedor.DataPropertyName = "fornecedor";
-            this.fornecedor.HeaderText = "fornecedor";
-            this.fornecedor.Name = "fornecedor";
-            this.fornecedor.ReadOnly = true;
-            this.fornecedor.Visible = false;
+            this.btnFiltrar.Location = new System.Drawing.Point(100, 179);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.TabIndex = 6;
+            this.btnFiltrar.Text = "&Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
-            // nome
+            // txtFiltrar
             // 
-            this.nome.DataPropertyName = "nome";
-            this.nome.HeaderText = "PRODUTO";
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
-            this.nome.Width = 192;
+            this.txtFiltrar.Location = new System.Drawing.Point(6, 154);
+            this.txtFiltrar.Name = "txtFiltrar";
+            this.txtFiltrar.Size = new System.Drawing.Size(241, 20);
+            this.txtFiltrar.TabIndex = 5;
             // 
-            // quantidade
+            // lblFIltro
             // 
-            this.quantidade.DataPropertyName = "quantidade";
-            this.quantidade.HeaderText = "QTD";
-            this.quantidade.Name = "quantidade";
-            this.quantidade.ReadOnly = true;
-            this.quantidade.Width = 60;
+            this.lblFIltro.Location = new System.Drawing.Point(6, 132);
+            this.lblFIltro.Name = "lblFIltro";
+            this.lblFIltro.Size = new System.Drawing.Size(241, 23);
+            this.lblFIltro.TabIndex = 4;
+            // 
+            // rdbNome
+            // 
+            this.rdbNome.AutoSize = true;
+            this.rdbNome.Location = new System.Drawing.Point(7, 102);
+            this.rdbNome.Name = "rdbNome";
+            this.rdbNome.Size = new System.Drawing.Size(53, 17);
+            this.rdbNome.TabIndex = 3;
+            this.rdbNome.TabStop = true;
+            this.rdbNome.Text = "Nome";
+            this.rdbNome.UseVisualStyleBackColor = true;
+            this.rdbNome.CheckedChanged += new System.EventHandler(this.rdbNome_CheckedChanged);
+            // 
+            // rdbID
+            // 
+            this.rdbID.AutoSize = true;
+            this.rdbID.Location = new System.Drawing.Point(7, 79);
+            this.rdbID.Name = "rdbID";
+            this.rdbID.Size = new System.Drawing.Size(36, 17);
+            this.rdbID.TabIndex = 2;
+            this.rdbID.TabStop = true;
+            this.rdbID.Text = "ID";
+            this.rdbID.UseVisualStyleBackColor = true;
+            this.rdbID.CheckedChanged += new System.EventHandler(this.rdbID_CheckedChanged);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.Location = new System.Drawing.Point(381, 342);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btnPesquisar.TabIndex = 69;
+            this.btnPesquisar.Text = "&Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // rdbTodos
+            // 
+            this.rdbTodos.AutoSize = true;
+            this.rdbTodos.Location = new System.Drawing.Point(6, 56);
+            this.rdbTodos.Name = "rdbTodos";
+            this.rdbTodos.Size = new System.Drawing.Size(55, 17);
+            this.rdbTodos.TabIndex = 8;
+            this.rdbTodos.TabStop = true;
+            this.rdbTodos.Text = "Todos";
+            this.rdbTodos.UseVisualStyleBackColor = true;
+            this.rdbTodos.CheckedChanged += new System.EventHandler(this.rdbTodos_CheckedChanged);
             // 
             // RequisicaoForm
             // 
@@ -415,6 +525,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 570);
             this.ControlBox = false;
+            this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.gpbPesquisa);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dgvRequisicoes);
             this.Controls.Add(this.btnCancelar);
@@ -447,6 +559,8 @@
             this.Load += new System.EventHandler(this.RequisicaoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequisicoes)).EndInit();
+            this.gpbPesquisa.ResumeLayout(false);
+            this.gpbPesquisa.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,5 +605,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fornecedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
+        private System.Windows.Forms.GroupBox gpbPesquisa;
+        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.TextBox txtFiltrar;
+        private System.Windows.Forms.Label lblFIltro;
+        private System.Windows.Forms.RadioButton rdbNome;
+        private System.Windows.Forms.RadioButton rdbID;
+        private System.Windows.Forms.ComboBox cbPesquisa;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.RadioButton rdbTodos;
     }
 }

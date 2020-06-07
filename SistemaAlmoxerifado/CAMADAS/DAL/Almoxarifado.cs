@@ -46,8 +46,8 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
             return lstAlmoxarifado;
         }
 
-        public MODEL.Almoxarifado SelectByID(int id) {
-            MODEL.Almoxarifado almoxarifado = new MODEL.Almoxarifado();
+        public List<MODEL.Almoxarifado> SelectByID(int id) {
+            List<MODEL.Almoxarifado> lstAlmoxarifado = new List<MODEL.Almoxarifado>();
 
             SqlConnection conexao = new SqlConnection(strCon);
             string sql = "SELECT * FROM Almoxarifado WHERE id=@id;";
@@ -59,12 +59,14 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                 SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
                 if(dados.Read()) {
-                    
+                    MODEL.Almoxarifado almoxarifado = new MODEL.Almoxarifado();
+
                     almoxarifado.id = Convert.ToInt32(dados["id"].ToString());
                     almoxarifado.fornecedorID = Convert.ToInt32(dados["fornecedorID"].ToString());
                     almoxarifado.nome = dados["nome"].ToString();
                     almoxarifado.quantidade = Convert.ToInt32(dados["quantidade"].ToString());
-                    
+
+                    lstAlmoxarifado.Add(almoxarifado);
                 }
             }
             catch {
@@ -73,7 +75,43 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
             finally {
                 conexao.Close();
             }
-            return almoxarifado;
+            return lstAlmoxarifado;
+        }
+
+        public List<MODEL.Almoxarifado> SelectByNome(string nome) {
+            List<MODEL.Almoxarifado> lstAlmoxarifado = new List<MODEL.Almoxarifado>();
+
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "SELECT * FROM Almoxarifado WHERE (nome LIKE @nome)";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@nome", "%"+ nome + "%");
+
+            try {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dados.Read()) {
+                    MODEL.Almoxarifado almoxarifado = new MODEL.Almoxarifado();
+                    almoxarifado.id = Convert.ToInt32(dados["id"].ToString());
+                    almoxarifado.fornecedorID = Convert.ToInt32(dados["fornecedorID"].ToString());
+                    almoxarifado.nome = dados["nome"].ToString();
+                    almoxarifado.quantidade = Convert.ToInt32(dados["quantidade"].ToString());
+
+                    //Recupera nome Fornecedor
+                    CAMADAS.BLL.Fornecedor bllFornecedor = new BLL.Fornecedor();
+                    CAMADAS.MODEL.Fornecedor fornecedor = bllFornecedor.SelectByID(almoxarifado.fornecedorID);
+                    almoxarifado.fornecedor = fornecedor.nome;
+
+                    lstAlmoxarifado.Add(almoxarifado);
+                }
+            }
+            catch {
+                Console.WriteLine("Erro no Select do Produto");
+            }
+            finally {
+                conexao.Close();
+            }
+            return lstAlmoxarifado;
         }
 
         public void Insert(MODEL.Almoxarifado almoxarifado) {

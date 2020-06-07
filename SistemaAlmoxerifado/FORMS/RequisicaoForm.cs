@@ -15,10 +15,13 @@ namespace SistemaAlmoxerifado.FORMS {
         }
 
         private void RequisicaoForm_Load(object sender, EventArgs e) {
+            txtIDSetor.Enabled = false;
             txtNomeProduto.Enabled = false;
             txtIDProduto.Enabled = false;
             txtQuantidadeProduto.Enabled = false;
             txtData.Enabled = false;
+
+            gpbPesquisa.Visible = false;
 
             CAMADAS.BLL.Almoxarifado bllAlmoxarifado = new CAMADAS.BLL.Almoxarifado();
             dgvProdutos.DataSource = "";
@@ -35,7 +38,6 @@ namespace SistemaAlmoxerifado.FORMS {
 
         public void habilitaControles(bool status) {
             cbSetor.Enabled = status;
-            txtIDSetor.Enabled = status;
             txtQuantidadeRequisitada.Enabled = status;
             btnGravar.Enabled = status;
             btnCancelar.Enabled = status;
@@ -176,7 +178,7 @@ namespace SistemaAlmoxerifado.FORMS {
                     CAMADAS.MODEL.Almoxarifado almoxarifado = new CAMADAS.MODEL.Almoxarifado();
                     almoxarifado.id = Convert.ToInt32(txtIDProduto.Text);
 
-                    almoxarifado = bllAlmo.SelectByID(almoxarifado.id);
+                    almoxarifado = bllAlmo.SelectByID(almoxarifado.id)[0];
                     int quantidadeEstoque = almoxarifado.quantidade;
                     int quantidadeRequisitada = Convert.ToInt32(txtQuantidadeRequisitada.Text);
 
@@ -191,20 +193,103 @@ namespace SistemaAlmoxerifado.FORMS {
             }
             else {
                 MessageBox.Show(mensagem, tituloMensagem, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                MessageBox.Show(mensagem, tituloMensagem, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //MessageBox.Show(mensagem, tituloMensagem, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             limpaControles();
 
             
             dgvProdutos.DataSource = new CAMADAS.BLL.Almoxarifado().Select();
-            dgvRequisicoes.DataSource = "";
             dgvRequisicoes.DataSource = bllRequisicao.Select();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e) {
             limpaControles();
             habilitaControles(false);
-        }      
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e) {
+            gpbPesquisa.Visible = true;
+            rdbID.Enabled = false;
+            rdbNome.Enabled = false;
+            txtFiltrar.Enabled = false;
+            btnFiltrar.Enabled = false;
+        }
+
+        private void cbPesquisa_SelectedIndexChanged(object sender, EventArgs e) {
+            if (cbPesquisa.SelectedItem != null) {
+                rdbID.Enabled = true;
+                rdbNome.Enabled = true;
+            }
+        }
+
+        private void rdbID_CheckedChanged(object sender, EventArgs e) {
+            lblFIltro.Text = "Infome o ID:";
+
+            txtFiltrar.Enabled = true;
+            btnFiltrar.Enabled = true;
+        }
+
+        private void rdbNome_CheckedChanged(object sender, EventArgs e) {
+            lblFIltro.Text = "Infome o Nome:";
+
+            txtFiltrar.Enabled = true;
+            btnFiltrar.Enabled = true;
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e) {
+            string mensagem = "";
+            string tituloMensagem = "";
+
+            if (txtFiltrar.Text != "") {
+                try {
+                    if (cbPesquisa.SelectedItem.ToString() == "Itens") {
+                        if (rdbID.Checked) {
+                            int idPesquisado = Convert.ToInt32(txtFiltrar.Text);
+                            dgvProdutos.DataSource = new CAMADAS.BLL.Almoxarifado().SelectByID(idPesquisado);
+                        }
+                        else {
+                            string nomePesquisado = txtFiltrar.Text;
+                            dgvProdutos.DataSource = new CAMADAS.BLL.Almoxarifado().SelectByNome(nomePesquisado);
+                        }
+                    }
+                    else {
+                        if (rdbID.Checked) {
+                            int idPesquisado = Convert.ToInt32(txtFiltrar.Text);
+                            dgvRequisicoes.DataSource = new CAMADAS.BLL.Requisicao().SelectByID(idPesquisado);
+                        }
+                        else {
+                            string nomePesquisado = txtFiltrar.Text;
+                            List<CAMADAS.MODEL.Almoxarifado> lstAlmoxarifado = new CAMADAS.BLL.Almoxarifado().SelectByNome(nomePesquisado);
+                            dgvRequisicoes.DataSource = new CAMADAS.BLL.Requisicao().SelectByNome(lstAlmoxarifado);
+                        }
+                    }
+
+                }
+                catch {
+                    mensagem = "O item pesquisado não existe.";
+                    tituloMensagem = "Erro";
+
+                    MessageBox.Show(mensagem, tituloMensagem, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else {
+                mensagem = "O campo texto não pode estar vazio.";
+                tituloMensagem = "Erro";
+
+                MessageBox.Show(mensagem, tituloMensagem, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void rdbTodos_CheckedChanged(object sender, EventArgs e) {
+            if (rdbTodos.Checked) {
+                if (cbPesquisa.SelectedItem.ToString() == "Itens") {
+                    dgvProdutos.DataSource = new CAMADAS.BLL.Almoxarifado().Select();
+                }
+                else {
+                    dgvRequisicoes.DataSource = new CAMADAS.BLL.Requisicao().Select();
+                }
+            }
+        }
     }
 }

@@ -12,6 +12,16 @@ namespace SistemaAlmoxerifado.CAMADAS.BLL {
             return dalRequisicao.Select();
         }
 
+        public List<MODEL.Requisicao> SelectByID(int id) {
+            DAL.Requisicao dalRequisicao = new DAL.Requisicao();
+            return dalRequisicao.SelectByID(id);
+        }
+
+        public List<MODEL.Requisicao> SelectByNome(List<MODEL.Almoxarifado> listaAlmoxarifado) {
+            DAL.Requisicao dalRequisicao = new DAL.Requisicao();
+            return dalRequisicao.SelectByNome(listaAlmoxarifado);
+        }
+
         public void Insert(MODEL.Requisicao requisicao) {
             DAL.Requisicao dalRequisicao = new DAL.Requisicao();
             dalRequisicao.Insert(requisicao);
