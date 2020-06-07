@@ -57,7 +57,7 @@ namespace SistemaAlmoxerifado.RELATORIOS {
                     sw.WriteLine("<td>" + requisicao.setor + "</td>");
                     sw.WriteLine("<td>" + requisicao.produto + "</td>");
                     sw.WriteLine("<td>" + requisicao.quantidade + "</td>");
-                    sw.WriteLine("<td>" + requisicao.data + "</td>");
+                    sw.WriteLine("<td>" + requisicao.data.ToShortDateString() + "</td>");
 
                     sw.WriteLine("</tr>");
 
@@ -66,7 +66,7 @@ namespace SistemaAlmoxerifado.RELATORIOS {
                 sw.WriteLine("</table>");
 
                 sw.WriteLine("<hr border='5px' /><br>");
-                sw.WriteLine("<h4> Quantidade de Requisições Realizadas: " + cont + "</h4>");
+                sw.WriteLine("<h5> Quantidade de Requisições Realizadas: " + cont + "</h5>");
                 sw.WriteLine("");
 
                 sw.WriteLine("</body>");

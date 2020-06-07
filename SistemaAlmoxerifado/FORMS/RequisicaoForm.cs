@@ -23,6 +23,11 @@ namespace SistemaAlmoxerifado.FORMS {
 
             gpbPesquisa.Visible = false;
 
+            CAMADAS.BLL.Setor bllSetor = new CAMADAS.BLL.Setor();
+            cbSetor.DisplayMember = "nome";
+            cbSetor.ValueMember = "id";
+            cbSetor.DataSource = bllSetor.Select();
+
             CAMADAS.BLL.Almoxarifado bllAlmoxarifado = new CAMADAS.BLL.Almoxarifado();
             dgvProdutos.DataSource = "";
             dgvProdutos.DataSource = bllAlmoxarifado.Select();
@@ -32,6 +37,9 @@ namespace SistemaAlmoxerifado.FORMS {
             CAMADAS.BLL.Requisicao bllRequisicao = new CAMADAS.BLL.Requisicao();
             dgvRequisicoes.DataSource = "";
             dgvRequisicoes.DataSource = bllRequisicao.Select();
+
+            
+            
 
             habilitaControles(false);
         }
@@ -143,13 +151,18 @@ namespace SistemaAlmoxerifado.FORMS {
         }
 
         private void dgvRequisicoes_DoubleClick(object sender, EventArgs e) {
-            lblID.Text = dgvRequisicoes.SelectedRows[0].Cells["idRC"].Value.ToString();
+            lblID.Text = dgvRequisicoes.SelectedRows[0].Cells["idRC"].Value.ToString();            
             txtIDSetor.Text = dgvRequisicoes.SelectedRows[0].Cells["setorID"].Value.ToString();
-            cbSetor.SelectedValue = dgvRequisicoes.SelectedRows[0].Cells["setor"].Value;
+            cbSetor.SelectedValue = Convert.ToInt32(dgvRequisicoes.SelectedRows[0].Cells["setorID"].Value.ToString());
             txtIDProduto.Text = dgvRequisicoes.SelectedRows[0].Cells["produtoID"].Value.ToString();
             txtNomeProduto.Text = dgvRequisicoes.SelectedRows[0].Cells["produto"].Value.ToString();
             txtQuantidadeRequisitada.Text = dgvRequisicoes.SelectedRows[0].Cells["quantidadeRC"].Value.ToString();
             txtData.Text = dgvRequisicoes.SelectedRows[0].Cells["data"].Value.ToString();
+
+            //Recuperar a quantidade do estoque
+            CAMADAS.BLL.Almoxarifado bllAlmo = new CAMADAS.BLL.Almoxarifado();
+            List<CAMADAS.MODEL.Almoxarifado> lstAlmo  = bllAlmo.SelectByID(Convert.ToInt32(txtIDProduto.Text));
+            txtQuantidadeProduto.Text = lstAlmo[0].quantidade.ToString();
         }
 
         private void btnEditar_Click(object sender, EventArgs e) {
@@ -289,6 +302,28 @@ namespace SistemaAlmoxerifado.FORMS {
                 else {
                     dgvRequisicoes.DataSource = new CAMADAS.BLL.Requisicao().Select();
                 }
+            }
+        }
+
+        private void txtIDSetor_Leave(object sender, EventArgs e) {
+            try {
+                if (txtIDSetor.Text != "") {
+                    cbSetor.SelectedValue = Convert.ToInt32(txtIDSetor.Text);
+                }
+            }
+            catch {
+                MessageBox.Show("Cliente Invalido");
+                cbSetor.Focus();
+            }
+        }
+
+        private void cbSetor_Leave(object sender, EventArgs e) {
+            try {
+                cbSetor_SelectedIndexChanged(null, null);
+            }
+            catch {
+                MessageBox.Show("Informe um Cliente");
+                cbSetor.Focus();
             }
         }
     }

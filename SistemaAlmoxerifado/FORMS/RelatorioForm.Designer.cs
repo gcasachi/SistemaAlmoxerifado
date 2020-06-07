@@ -32,7 +32,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(372, 89);
+            this.label3.Location = new System.Drawing.Point(372, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(147, 31);
             this.label3.TabIndex = 54;
@@ -41,7 +41,7 @@
             // btnRelAlmo
             // 
             this.btnRelAlmo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRelAlmo.Location = new System.Drawing.Point(594, 254);
+            this.btnRelAlmo.Location = new System.Drawing.Point(587, 310);
             this.btnRelAlmo.Name = "btnRelAlmo";
             this.btnRelAlmo.Size = new System.Drawing.Size(89, 23);
             this.btnRelAlmo.TabIndex = 56;
@@ -53,7 +53,7 @@
             // 
             this.btnRelRequisicao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnRelRequisicao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRelRequisicao.Location = new System.Drawing.Point(222, 254);
+            this.btnRelRequisicao.Location = new System.Drawing.Point(215, 310);
             this.btnRelRequisicao.Name = "btnRelRequisicao";
             this.btnRelRequisicao.Size = new System.Drawing.Size(87, 23);
             this.btnRelRequisicao.TabIndex = 55;

@@ -47,6 +47,7 @@ namespace SistemaAlmoxerifado.RELATORIOS {
                 sw.WriteLine("</thead class='thead-dark'>");
                 sw.WriteLine("</tr>");
 
+                int cont = 0;
 
                 foreach (CAMADAS.MODEL.Almoxarifado almoxarifado in lstAlmoxarifado) {
                     sw.WriteLine("<tr align='center'>");
@@ -57,10 +58,13 @@ namespace SistemaAlmoxerifado.RELATORIOS {
                     sw.WriteLine("<td>" + almoxarifado.quantidade + "</td>");
 
                     sw.WriteLine("</tr>");
+
+                    cont++;
                 }                
                 sw.WriteLine("</table>");
 
-                sw.WriteLine("");
+                sw.WriteLine("<h5> Quantidade de Itens no Almoxarifado: " + cont + "</h5>");
+                
                 sw.WriteLine("");
 
 
