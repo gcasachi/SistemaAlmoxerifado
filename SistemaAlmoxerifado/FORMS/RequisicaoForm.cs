@@ -168,6 +168,7 @@ namespace SistemaAlmoxerifado.FORMS {
         private void btnEditar_Click(object sender, EventArgs e) {
             if (lblID.Text != "") {
                 habilitaControles(true);
+                cbSetor.Enabled = false;
                 txtQuantidadeRequisitada.Focus();
             }
             else {

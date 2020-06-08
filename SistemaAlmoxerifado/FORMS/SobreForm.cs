@@ -13,5 +13,13 @@ namespace SistemaAlmoxerifado.FORMS {
         public SobreForm() {
             InitializeComponent();
         }
+
+        private void SobreForm_Load(object sender, EventArgs e) {
+            lblHora.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e) {
+            lblHora.Text = DateTime.Now.ToLongTimeString();
+        }
     }
 }
