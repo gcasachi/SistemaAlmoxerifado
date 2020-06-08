@@ -92,7 +92,8 @@ namespace SistemaAlmoxerifado.FORMS {
         private void btnGravar_Click(object sender, EventArgs e) {
             int quantidadeRequisitada = Convert.ToInt32(txtQuantidadeRequisitada.Text);
             int quantidadeEstoque = Convert.ToInt32(txtQuantidadeProduto.Text);
-
+            Console.WriteLine("Estoque:" + quantidadeEstoque);
+            Console.WriteLine("RC:" + quantidadeRequisitada);
             string mensagem = "";
             string tituloMensagem = "";
 
@@ -117,7 +118,7 @@ namespace SistemaAlmoxerifado.FORMS {
                     requisicao.setorID = Convert.ToInt32(txtIDSetor.Text);
                     requisicao.produtoID = Convert.ToInt32(txtIDProduto.Text);
                     requisicao.quantidade = Convert.ToInt32(txtQuantidadeRequisitada.Text);
-                    requisicao.data = DateTime.Now;
+                    
 
                     CAMADAS.MODEL.Almoxarifado almoxarifado = new CAMADAS.MODEL.Almoxarifado();
                     almoxarifado.id = Convert.ToInt32(txtIDProduto.Text);
@@ -127,6 +128,7 @@ namespace SistemaAlmoxerifado.FORMS {
                     bllAtualizaEstoqueItem.Update(almoxarifado);
 
                     if (lblID.Text == "-1") {
+                        requisicao.data = DateTime.Now;
                         bllRequisicao.Insert(requisicao);
                     }
                     else {

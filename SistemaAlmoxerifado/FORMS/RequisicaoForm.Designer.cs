@@ -51,17 +51,19 @@
             this.txtData = new System.Windows.Forms.TextBox();
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fornecedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.dgvRequisicoes = new System.Windows.Forms.DataGridView();
+            this.idRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.setor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.setorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.produtoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidadeRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.gpbPesquisa = new System.Windows.Forms.GroupBox();
             this.rdbTodos = new System.Windows.Forms.RadioButton();
@@ -72,13 +74,11 @@
             this.rdbNome = new System.Windows.Forms.RadioButton();
             this.rdbID = new System.Windows.Forms.RadioButton();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.idRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.setor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.setorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.produtoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantidadeRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequisicoes)).BeginInit();
             this.gpbPesquisa.SuspendLayout();
@@ -271,47 +271,6 @@
             this.dgvProdutos.TabIndex = 18;
             this.dgvProdutos.DoubleClick += new System.EventHandler(this.dgvRequisicaoItens_DoubleClick);
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 50;
-            // 
-            // fornecedorID
-            // 
-            this.fornecedorID.DataPropertyName = "fornecedorID";
-            this.fornecedorID.HeaderText = "ID Fornecedor";
-            this.fornecedorID.Name = "fornecedorID";
-            this.fornecedorID.ReadOnly = true;
-            this.fornecedorID.Visible = false;
-            // 
-            // fornecedor
-            // 
-            this.fornecedor.DataPropertyName = "fornecedor";
-            this.fornecedor.HeaderText = "fornecedor";
-            this.fornecedor.Name = "fornecedor";
-            this.fornecedor.ReadOnly = true;
-            this.fornecedor.Visible = false;
-            // 
-            // nome
-            // 
-            this.nome.DataPropertyName = "nome";
-            this.nome.HeaderText = "PRODUTO";
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
-            this.nome.Width = 192;
-            // 
-            // quantidade
-            // 
-            this.quantidade.DataPropertyName = "quantidade";
-            this.quantidade.HeaderText = "QTD";
-            this.quantidade.Name = "quantidade";
-            this.quantidade.ReadOnly = true;
-            this.quantidade.Width = 60;
-            // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -414,6 +373,63 @@
             this.dgvRequisicoes.Size = new System.Drawing.Size(544, 142);
             this.dgvRequisicoes.TabIndex = 66;
             this.dgvRequisicoes.DoubleClick += new System.EventHandler(this.dgvRequisicoes_DoubleClick);
+            // 
+            // idRC
+            // 
+            this.idRC.DataPropertyName = "id";
+            this.idRC.HeaderText = "ID";
+            this.idRC.Name = "idRC";
+            this.idRC.ReadOnly = true;
+            this.idRC.Width = 50;
+            // 
+            // setor
+            // 
+            this.setor.DataPropertyName = "setor";
+            this.setor.HeaderText = "SETOR";
+            this.setor.Name = "setor";
+            this.setor.ReadOnly = true;
+            // 
+            // setorID
+            // 
+            this.setorID.DataPropertyName = "setorID";
+            this.setorID.HeaderText = "setorID";
+            this.setorID.Name = "setorID";
+            this.setorID.ReadOnly = true;
+            this.setorID.Visible = false;
+            // 
+            // produto
+            // 
+            this.produto.DataPropertyName = "produto";
+            this.produto.HeaderText = "PRODUTO";
+            this.produto.Name = "produto";
+            this.produto.ReadOnly = true;
+            this.produto.Width = 130;
+            // 
+            // produtoID
+            // 
+            this.produtoID.DataPropertyName = "produtoID";
+            this.produtoID.HeaderText = "produtoID";
+            this.produtoID.Name = "produtoID";
+            this.produtoID.ReadOnly = true;
+            this.produtoID.Visible = false;
+            // 
+            // quantidadeRC
+            // 
+            this.quantidadeRC.DataPropertyName = "quantidade";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.quantidadeRC.DefaultCellStyle = dataGridViewCellStyle7;
+            this.quantidadeRC.HeaderText = "QTD";
+            this.quantidadeRC.Name = "quantidadeRC";
+            this.quantidadeRC.ReadOnly = true;
+            this.quantidadeRC.Width = 75;
+            // 
+            // data
+            // 
+            this.data.DataPropertyName = "data";
+            this.data.HeaderText = "DATA";
+            this.data.Name = "data";
+            this.data.ReadOnly = true;
+            this.data.Width = 120;
             // 
             // label10
             // 
@@ -525,62 +541,46 @@
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
-            // idRC
+            // id
             // 
-            this.idRC.DataPropertyName = "id";
-            this.idRC.HeaderText = "ID";
-            this.idRC.Name = "idRC";
-            this.idRC.ReadOnly = true;
-            this.idRC.Width = 50;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 50;
             // 
-            // setor
+            // fornecedorID
             // 
-            this.setor.DataPropertyName = "setor";
-            this.setor.HeaderText = "SETOR";
-            this.setor.Name = "setor";
-            this.setor.ReadOnly = true;
+            this.fornecedorID.DataPropertyName = "fornecedorID";
+            this.fornecedorID.HeaderText = "ID Fornecedor";
+            this.fornecedorID.Name = "fornecedorID";
+            this.fornecedorID.ReadOnly = true;
+            this.fornecedorID.Visible = false;
             // 
-            // setorID
+            // fornecedor
             // 
-            this.setorID.DataPropertyName = "setorID";
-            this.setorID.HeaderText = "setorID";
-            this.setorID.Name = "setorID";
-            this.setorID.ReadOnly = true;
-            this.setorID.Visible = false;
+            this.fornecedor.DataPropertyName = "fornecedor";
+            this.fornecedor.HeaderText = "fornecedor";
+            this.fornecedor.Name = "fornecedor";
+            this.fornecedor.ReadOnly = true;
+            this.fornecedor.Visible = false;
             // 
-            // produto
+            // nome
             // 
-            this.produto.DataPropertyName = "produto";
-            this.produto.HeaderText = "PRODUTO";
-            this.produto.Name = "produto";
-            this.produto.ReadOnly = true;
-            this.produto.Width = 130;
+            this.nome.DataPropertyName = "nome";
+            this.nome.HeaderText = "PRODUTO";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
+            this.nome.Width = 190;
             // 
-            // produtoID
+            // quantidade
             // 
-            this.produtoID.DataPropertyName = "produtoID";
-            this.produtoID.HeaderText = "produtoID";
-            this.produtoID.Name = "produtoID";
-            this.produtoID.ReadOnly = true;
-            this.produtoID.Visible = false;
-            // 
-            // quantidadeRC
-            // 
-            this.quantidadeRC.DataPropertyName = "quantidade";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.quantidadeRC.DefaultCellStyle = dataGridViewCellStyle7;
-            this.quantidadeRC.HeaderText = "QTD";
-            this.quantidadeRC.Name = "quantidadeRC";
-            this.quantidadeRC.ReadOnly = true;
-            this.quantidadeRC.Width = 75;
-            // 
-            // data
-            // 
-            this.data.DataPropertyName = "data";
-            this.data.HeaderText = "DATA";
-            this.data.Name = "data";
-            this.data.ReadOnly = true;
-            this.data.Width = 120;
+            this.quantidade.DataPropertyName = "quantidade";
+            this.quantidade.HeaderText = "QTD";
+            this.quantidade.Name = "quantidade";
+            this.quantidade.ReadOnly = true;
+            this.quantidade.Width = 60;
             // 
             // RequisicaoForm
             // 
@@ -656,11 +656,6 @@
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.DataGridView dgvRequisicoes;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fornecedorID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fornecedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
         private System.Windows.Forms.GroupBox gpbPesquisa;
         private System.Windows.Forms.Button btnFiltrar;
         private System.Windows.Forms.TextBox txtFiltrar;
@@ -677,5 +672,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn produtoID;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantidadeRC;
         private System.Windows.Forms.DataGridViewTextBoxColumn data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fornecedorID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fornecedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantidade;
     }
 }
