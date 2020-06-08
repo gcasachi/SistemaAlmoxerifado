@@ -60,18 +60,23 @@ namespace SistemaAlmoxerifado.FORMS {
 
         private void btnRemover_Click(object sender, EventArgs e) {
             CAMADAS.BLL.Setor bllSetor = new CAMADAS.BLL.Setor();
-            string msg = "Não há setor para remover";
-            string titBox = "Remover";
 
-            if(lblID.Text != "") {
+            string msg = "Não há dados selecionado para remover";
+            string titBox = "Erro";
+               
+            if (lblID.Text != "") {
                 msg = "Deseja Remover o Setor: " + txtNome.Text;
+                titBox = "Remover";
                 DialogResult resposta = MessageBox.Show(msg, titBox, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                if(resposta == DialogResult.Yes) {
+
+                if (resposta == DialogResult.Yes) {
                     int id = Convert.ToInt32(lblID.Text);
                     bllSetor.Delete(id);
                 }
             }
             else {
+                msg = "Não há dados selecionado para remover";
+                titBox = "Erro";
                 MessageBox.Show(msg, titBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 

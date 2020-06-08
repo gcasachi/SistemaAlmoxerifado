@@ -61,22 +61,25 @@ namespace SistemaAlmoxerifado.FORMS {
 
         private void btnRemover_Click(object sender, EventArgs e) {
             CAMADAS.BLL.Fornecedor bllFornecedor = new CAMADAS.BLL.Fornecedor();
+
             string msg = "Não há dados selecionado para remover";
-            string titBox = "Remover";
+            string titBox = "Erro";                
 
             if (lblID.Text != "") {
                 msg = "Deseja Remover o Fornecedor: " + txtNome.Text + "?";
+                titBox = "Remover";
                 DialogResult resposta = MessageBox.Show(msg, titBox, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
                 if (resposta == DialogResult.Yes) {
                     int id = Convert.ToInt32(lblID.Text);
                     bllFornecedor.Delete(id);
                 }
             }
             else {
-                MessageBox.Show(msg, titBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(msg, titBox, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            limpaControles();           
+            limpaControles();
             dgvFornecedor.DataSource = bllFornecedor.Select();
         }
 

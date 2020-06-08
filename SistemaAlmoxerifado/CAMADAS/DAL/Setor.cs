@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SistemaAlmoxerifado.CAMADAS.DAL {
     public class Setor {
@@ -110,7 +111,9 @@ namespace SistemaAlmoxerifado.CAMADAS.DAL {
                 cmd.ExecuteNonQuery();
             }
             catch {
-                Console.WriteLine("Erro ao Excluir");
+                string msg = "Não foi possível remover o item. Verifique se ele está vinculado a outros campos";
+                string titBox = "Erro";
+                MessageBox.Show(msg, titBox, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally {
                 conexao.Close();
